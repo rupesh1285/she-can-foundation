@@ -79,26 +79,26 @@ export const AdminDashboard = () => {
     { label: 'Volunteers', count: volunteers.length, icon: <Users size={24} />, color: 'bg-blue-100 text-blue-600' },
     { label: 'Ambassadors', count: ambassadors.length, icon: <Award size={24} />, color: 'bg-purple-100 text-purple-600' },
     { label: 'Messages', count: contacts.length, icon: <MessageSquare size={24} />, color: 'bg-green-100 text-green-600' },
-    { label: 'New Today', count: [...volunteers, ...ambassadors, ...contacts].filter(i => new Date(i.createdAt).toDateString() === new Date().toDateString()).length, icon: <Heart size={24} />, color: 'bg-pink-100 text-[#E91E8C]' }
+    { label: 'New Today', count: [...volunteers, ...ambassadors, ...contacts].filter(i => new Date(i.createdAt).toDateString() === new Date().toDateString()).length, icon: <Heart size={24} />, color: 'bg-pink-100 text-[#E11D48]' }
   ];
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col md:flex-row">
       {/* Sidebar */}
-      <aside className="w-full md:w-64 bg-[#1A0A12] text-white p-6 flex flex-col">
+      <aside className="w-full md:w-64 bg-[#0F172A] text-white p-6 flex flex-col">
         <div className="flex items-center gap-2 mb-10">
-          <Heart className="text-[#E91E8C]" fill="#E91E8C" size={24} />
+          <Heart className="text-[#E11D48]" fill="#E11D48" size={24} />
           <span className="text-xl font-bold font-serif">Admin Portal</span>
         </div>
         
         <nav className="flex-1 space-y-2">
-          <button onClick={() => setActiveTab('volunteers')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${activeTab === 'volunteers' ? 'bg-[#E91E8C] text-white' : 'text-gray-400 hover:bg-white/10'}`}>
+          <button onClick={() => setActiveTab('volunteers')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${activeTab === 'volunteers' ? 'bg-[#E11D48] text-white' : 'text-gray-400 hover:bg-white/10'}`}>
             <Users size={20} /> Volunteers
           </button>
-          <button onClick={() => setActiveTab('ambassadors')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${activeTab === 'ambassadors' ? 'bg-[#E91E8C] text-white' : 'text-gray-400 hover:bg-white/10'}`}>
+          <button onClick={() => setActiveTab('ambassadors')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${activeTab === 'ambassadors' ? 'bg-[#E11D48] text-white' : 'text-gray-400 hover:bg-white/10'}`}>
             <Award size={20} /> Ambassadors
           </button>
-          <button onClick={() => setActiveTab('contacts')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${activeTab === 'contacts' ? 'bg-[#E91E8C] text-white' : 'text-gray-400 hover:bg-white/10'}`}>
+          <button onClick={() => setActiveTab('contacts')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${activeTab === 'contacts' ? 'bg-[#E11D48] text-white' : 'text-gray-400 hover:bg-white/10'}`}>
             <MessageSquare size={20} /> Messages
           </button>
         </nav>
@@ -117,14 +117,14 @@ export const AdminDashboard = () => {
                 {stat.icon}
               </div>
               <p className="text-gray-500 text-sm font-medium">{stat.label}</p>
-              <h4 className="text-3xl font-bold text-[#1A1A2E]">{stat.count}</h4>
+              <h4 className="text-3xl font-bold text-[#0F172A]">{stat.count}</h4>
             </div>
           ))}
         </div>
 
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
           <div className="p-6 border-b border-gray-100 flex justify-between items-center">
-            <h3 className="text-xl font-bold text-[#1A1A2E] capitalize">{activeTab}</h3>
+            <h3 className="text-xl font-bold text-[#0F172A] capitalize">{activeTab}</h3>
             <button onClick={() => downloadCSV(activeTab)} className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-sm font-medium transition-colors">
               <Download size={16} /> Export CSV
             </button>
@@ -148,7 +148,7 @@ export const AdminDashboard = () => {
                   {(activeTab === 'volunteers' ? volunteers : activeTab === 'ambassadors' ? ambassadors : contacts).map((item: any) => (
                     <tr key={item._id} className="hover:bg-gray-50 transition-colors">
                       <td className="p-4">
-                        <p className="font-medium text-[#1A1A2E]">{item.name}</p>
+                        <p className="font-medium text-[#0F172A]">{item.name}</p>
                         <p className="text-sm text-gray-500">{item.email}</p>
                       </td>
                       <td className="p-4 text-sm text-gray-500">
@@ -160,7 +160,7 @@ export const AdminDashboard = () => {
                         {activeTab === 'contacts' && <p className="text-sm text-gray-700 truncate max-w-xs">{item.message}</p>}
                       </td>
                       <td className="p-4">
-                        <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${item.status === 'new' ? 'bg-pink-100 text-[#E91E8C]' : 'bg-green-100 text-green-700'}`}>
+                        <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${item.status === 'new' ? 'bg-pink-100 text-[#E11D48]' : 'bg-green-100 text-green-700'}`}>
                           {item.status === 'new' ? <Circle size={10} fill="currentColor" /> : <CheckCircle size={12} />}
                           {item.status}
                         </span>

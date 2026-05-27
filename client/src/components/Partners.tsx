@@ -33,7 +33,7 @@ export const Partners = () => {
           className="flex whitespace-nowrap gap-16 md:gap-24 px-8 items-center"
         >
           {partners.map((partner, index) => (
-            <div key={index} className="text-2xl md:text-3xl font-serif font-bold text-gray-300 opacity-60 hover:opacity-100 hover:text-[#E91E8C] transition-all duration-300 cursor-default shrink-0">
+            <div key={index} className="text-2xl md:text-3xl font-serif font-bold text-gray-300 opacity-60 hover:opacity-100 hover:text-[#E11D48] transition-all duration-300 cursor-default shrink-0">
               {partner}
             </div>
           ))}
