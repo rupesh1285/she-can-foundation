@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,29 +10,35 @@
   }
   
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #fcfcfc;
+    background-color: #ffffff;
+    color: #111111;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-    letter-spacing: -0.04em; /* Editorial tight tracking */
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.05em; 
   }
 }
 
-/* Hide scrollbar for the infinite marquee */
+/* Brutalist specific utilities */
+.brutal-border {
+  border: 3px solid #111111;
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #ffffff;
+  border-left: 2px solid #111111;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #E91E8C;
-  border-radius: 10px;
+  background: #FF007F;
+  border: 2px solid #111111;
 }
