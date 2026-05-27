@@ -7,21 +7,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#FF007F",
-        secondary: "#FF6A00",
+        primary: "#E91E8C",
+        secondary: "#FF6BB5",
         accent: "#FFD6EC",
-        dark: "#09090E",
-        text: "#111111",
-        muted: "#666666"
+        dark: "#1A0A12",
+        text: "#1A1A2E",
+        muted: "#6B7280"
       },
       fontFamily: {
-        sans: ['Outfit', 'sans-serif'],
-        display: ['Space Grotesk', 'sans-serif'],
-      },
-      boxShadow: {
-        'brutal': '8px 8px 0px 0px rgba(17,17,17,1)',
-        'brutal-hover': '4px 4px 0px 0px rgba(17,17,17,1)',
-        'brutal-primary': '8px 8px 0px 0px rgba(255,0,127,1)',
+        sans: ['Inter', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
       }
     },
   },
