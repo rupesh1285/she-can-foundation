@@ -37,13 +37,13 @@ export const Navbar = () => {
           <motion.div 
             whileHover={{ rotate: 180 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="w-12 h-12 rounded-[1.2rem] bg-gradient-to-br from-[#E11D48] to-[#FDA4AF] shadow-[0_10px_20px_-10px_rgba(233,30,140,0.6)] flex items-center justify-center text-white"
+            className="w-12 h-12 rounded-[1.2rem] bg-gradient-to-br from-[#E91E8C] to-[#FF6BB5] shadow-[0_10px_20px_-10px_rgba(233,30,140,0.6)] flex items-center justify-center text-white"
           >
             <Heart size={24} className="fill-white" />
           </motion.div>
           <div className="flex flex-col">
-            <span className="font-serif font-bold text-xl tracking-tight text-[#0F172A] leading-none">She Can</span>
-            <span className="text-[0.65rem] font-bold tracking-[0.2em] text-[#E11D48] uppercase leading-tight mt-1">Foundation</span>
+            <span className="font-serif font-bold text-xl tracking-tight text-[#1A1A2E] leading-none">She Can</span>
+            <span className="text-[0.65rem] font-bold tracking-[0.2em] text-[#E91E8C] uppercase leading-tight mt-1">Foundation</span>
           </div>
         </a>
 
@@ -53,20 +53,20 @@ export const Navbar = () => {
             <a 
               key={link.name} 
               href={link.href} 
-              className="text-sm font-bold tracking-wide text-gray-700 hover:text-[#E11D48] transition-colors relative group"
+              className="text-sm font-bold tracking-wide text-gray-700 hover:text-[#E91E8C] transition-colors relative group"
             >
               {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#E11D48] transition-all duration-300 group-hover:w-full rounded-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#E91E8C] transition-all duration-300 group-hover:w-full rounded-full"></span>
             </a>
           ))}
         </div>
 
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-4">
-          <a href="#contact" className="text-sm font-bold text-gray-700 hover:text-[#E11D48] transition-colors px-2">Contact</a>
+          <a href="#contact" className="text-sm font-bold text-gray-700 hover:text-[#E91E8C] transition-colors px-2">Contact</a>
           <a 
             href="#volunteer" 
-            className="px-6 py-2.5 rounded-full bg-[#0F172A] text-white text-sm font-bold shadow-[0_10px_20px_-10px_rgba(26,26,46,0.6)] hover:shadow-[0_15px_30px_-10px_rgba(26,26,46,0.8)] hover:bg-[#E11D48] hover:-translate-y-0.5 transition-all duration-300"
+            className="px-6 py-2.5 rounded-full bg-[#1A1A2E] text-white text-sm font-bold shadow-[0_10px_20px_-10px_rgba(26,26,46,0.6)] hover:shadow-[0_15px_30px_-10px_rgba(26,26,46,0.8)] hover:bg-[#E91E8C] hover:-translate-y-0.5 transition-all duration-300"
           >
             Join Us
           </a>
@@ -74,7 +74,7 @@ export const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button 
-          className="md:hidden w-12 h-12 rounded-2xl bg-white/50 border border-white/60 flex items-center justify-center text-[#0F172A]"
+          className="md:hidden w-12 h-12 rounded-2xl bg-white/50 border border-white/60 flex items-center justify-center text-[#1A1A2E]"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -96,14 +96,14 @@ export const Navbar = () => {
                   key={link.name} 
                   href={link.href} 
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-lg font-bold text-[#0F172A]"
+                  className="text-lg font-bold text-[#1A1A2E]"
                 >
                   {link.name}
                 </a>
               ))}
               <div className="h-px bg-gray-200/50 w-full my-2"></div>
-              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-[#0F172A]">Contact</a>
-              <a href="#volunteer" onClick={() => setMobileMenuOpen(false)} className="mt-2 text-center py-4 rounded-xl bg-[#E11D48] text-white font-bold">Join Us</a>
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-bold text-[#1A1A2E]">Contact</a>
+              <a href="#volunteer" onClick={() => setMobileMenuOpen(false)} className="mt-2 text-center py-4 rounded-xl bg-[#E91E8C] text-white font-bold">Join Us</a>
             </div>
           </motion.div>
         )}

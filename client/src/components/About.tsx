@@ -21,7 +21,7 @@ export const About = () => {
             className="lg:w-[45%] relative w-full aspect-[3/4] max-w-[500px] mx-auto"
           >
             {/* Soft backdrop glow */}
-            <div className="absolute inset-0 bg-[#E11D48]/20 rounded-[3rem] blur-3xl transform -translate-x-10 translate-y-10 -z-10"></div>
+            <div className="absolute inset-0 bg-[#E91E8C]/20 rounded-[3rem] blur-3xl transform -translate-x-10 translate-y-10 -z-10"></div>
             
             <motion.div style={{ y }} className="w-full h-full relative z-10">
               <img 
@@ -40,10 +40,10 @@ export const About = () => {
                   <div className="flex -space-x-4">
                     <img className="w-12 h-12 rounded-full border-[3px] border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Avatar" />
                     <img className="w-12 h-12 rounded-full border-[3px] border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Avatar" />
-                    <div className="w-12 h-12 rounded-full border-[3px] border-white bg-gradient-to-br from-[#E11D48] to-[#FDA4AF] text-white flex items-center justify-center text-xs font-black shadow-sm">+2k</div>
+                    <div className="w-12 h-12 rounded-full border-[3px] border-white bg-gradient-to-br from-[#E91E8C] to-[#FF6BB5] text-white flex items-center justify-center text-xs font-black shadow-sm">+2k</div>
                   </div>
                 </div>
-                <p className="font-serif font-bold text-[#0F172A] text-xl leading-tight mb-1">Join our community</p>
+                <p className="font-serif font-bold text-[#1A1A2E] text-xl leading-tight mb-1">Join our community</p>
                 <p className="text-xs font-bold text-gray-500 uppercase tracking-[0.15em]">Empowering women daily</p>
               </motion.div>
             </motion.div>
@@ -58,13 +58,13 @@ export const About = () => {
             className="lg:w-[55%]"
           >
             <div className="inline-flex items-center gap-3 px-1 mb-8">
-              <div className="w-8 h-[2px] bg-[#E11D48]"></div>
-              <span className="text-[10px] font-bold tracking-[0.3em] text-[#E11D48] uppercase">The Foundation</span>
+              <div className="w-8 h-[2px] bg-[#E91E8C]"></div>
+              <span className="text-[10px] font-bold tracking-[0.3em] text-[#E91E8C] uppercase">The Foundation</span>
             </div>
             
-            <h2 className="text-5xl md:text-6xl lg:text-[4.5rem] font-bold font-serif text-[#0F172A] mb-8 leading-[1.05] tracking-tighter">
+            <h2 className="text-5xl md:text-6xl lg:text-[4.5rem] font-bold font-serif text-[#1A1A2E] mb-8 leading-[1.05] tracking-tighter">
               A legacy built on <br className="hidden md:block"/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E11D48] to-[#FDA4AF]">Empowerment.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E91E8C] to-[#FF6BB5]">Empowerment.</span>
             </h2>
             
             <p className="text-xl text-gray-500 mb-12 leading-[1.7] font-medium tracking-tight">
@@ -73,11 +73,11 @@ export const About = () => {
             
             <div className="space-y-6 mb-12">
               <div className="flex gap-6 items-start p-8 rounded-[2rem] bg-[#fcfcfc] shadow-[inset_0_2px_4px_rgba(255,255,255,1),0_10px_20px_-10px_rgba(0,0,0,0.02)] border border-gray-100 group hover:bg-white transition-colors duration-500">
-                <div className="w-16 h-16 rounded-[1.2rem] bg-[#FFE4E6]/50 flex items-center justify-center text-[#E11D48] shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
+                <div className="w-16 h-16 rounded-[1.2rem] bg-[#FFD6EC]/50 flex items-center justify-center text-[#E91E8C] shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
                   <BookOpen size={28} />
                 </div>
                 <div>
-                  <h4 className="font-serif font-bold text-[#0F172A] text-2xl mb-3 tracking-tight">Our Mission</h4>
+                  <h4 className="font-serif font-bold text-[#1A1A2E] text-2xl mb-3 tracking-tight">Our Mission</h4>
                   <p className="text-gray-500 leading-[1.7] font-medium text-lg">Empowering women through comprehensive education and skill training programs to achieve financial independence.</p>
                 </div>
               </div>
@@ -87,7 +87,7 @@ export const About = () => {
                   <TrendingUp size={28} />
                 </div>
                 <div>
-                  <h4 className="font-serif font-bold text-[#0F172A] text-2xl mb-3 tracking-tight">Our Vision</h4>
+                  <h4 className="font-serif font-bold text-[#1A1A2E] text-2xl mb-3 tracking-tight">Our Vision</h4>
                   <p className="text-gray-500 leading-[1.7] font-medium text-lg">Fostering true gender equality and driving sustainable economic growth across marginalized communities in India.</p>
                 </div>
               </div>

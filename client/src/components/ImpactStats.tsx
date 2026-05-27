@@ -42,26 +42,26 @@ const IndiaMapSVG = () => (
 
 export const ImpactStats = () => {
   const stats = [
-    { icon: <Users size={32} />, number: 8400, suffix: "+", label: "Followers & Supporters", color: "text-[#E11D48]", bg: "bg-[#E11D48]/10", border: "border-[#E11D48]/20" },
-    { icon: <BookOpen size={32} />, number: 63, suffix: "+", label: "Programs & Initiatives", color: "text-[#FDA4AF]", bg: "bg-[#FDA4AF]/10", border: "border-[#FDA4AF]/20" },
+    { icon: <Users size={32} />, number: 8400, suffix: "+", label: "Followers & Supporters", color: "text-[#E91E8C]", bg: "bg-[#E91E8C]/10", border: "border-[#E91E8C]/20" },
+    { icon: <BookOpen size={32} />, number: 63, suffix: "+", label: "Programs & Initiatives", color: "text-[#FF6BB5]", bg: "bg-[#FF6BB5]/10", border: "border-[#FF6BB5]/20" },
     { icon: <Globe size={32} />, number: 29, suffix: " States", label: "PAN India Reach", color: "text-purple-400", bg: "bg-purple-400/10", border: "border-purple-400/20" },
     { icon: <Award size={32} />, number: 1860, suffix: "", label: "Registered Society Act", color: "text-pink-300", bg: "bg-pink-300/10", border: "border-pink-300/20" }
   ];
 
   return (
-    <section id="impact" className="relative py-32 overflow-hidden bg-[#0F172A]">
+    <section id="impact" className="relative py-32 overflow-hidden bg-[#1A0A12]">
       {/* Dark mode background gradients */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#5f103b]/40 via-[#0F172A] to-[#0F172A] z-0"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#5f103b]/40 via-[#1A0A12] to-[#1A0A12] z-0"></div>
       
       {/* India Map Visualization */}
       <IndiaMapSVG />
       
       {/* Glowing pulsing dots indicating reach */}
-      <motion.div animate={{ opacity: [0, 1, 0], scale: [0.8, 1.2, 0.8] }} transition={{ repeat: Infinity, duration: 3, delay: 0 }} className="absolute top-[40%] left-[45%] w-3 h-3 bg-[#E11D48] rounded-full blur-[2px] z-10"></motion.div>
-      <motion.div animate={{ opacity: [0, 1, 0], scale: [0.8, 1.2, 0.8] }} transition={{ repeat: Infinity, duration: 3, delay: 1 }} className="absolute top-[60%] left-[40%] w-2 h-2 bg-[#FDA4AF] rounded-full blur-[1px] z-10"></motion.div>
+      <motion.div animate={{ opacity: [0, 1, 0], scale: [0.8, 1.2, 0.8] }} transition={{ repeat: Infinity, duration: 3, delay: 0 }} className="absolute top-[40%] left-[45%] w-3 h-3 bg-[#E91E8C] rounded-full blur-[2px] z-10"></motion.div>
+      <motion.div animate={{ opacity: [0, 1, 0], scale: [0.8, 1.2, 0.8] }} transition={{ repeat: Infinity, duration: 3, delay: 1 }} className="absolute top-[60%] left-[40%] w-2 h-2 bg-[#FF6BB5] rounded-full blur-[1px] z-10"></motion.div>
       <motion.div animate={{ opacity: [0, 1, 0], scale: [0.8, 1.2, 0.8] }} transition={{ repeat: Infinity, duration: 3, delay: 2 }} className="absolute top-[50%] left-[55%] w-4 h-4 bg-purple-400 rounded-full blur-[3px] z-10"></motion.div>
       
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#E11D48]/10 rounded-full blur-[120px] mix-blend-screen z-0"></div>
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#E91E8C]/10 rounded-full blur-[120px] mix-blend-screen z-0"></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[100px] mix-blend-screen z-0"></div>
       
       <div className="container mx-auto px-4 md:px-8 relative z-20">
@@ -73,9 +73,9 @@ export const ImpactStats = () => {
             viewport={{ once: true }}
           >
             <div className="inline-flex items-center gap-3 px-1 mb-6">
-              <div className="w-8 h-[2px] bg-[#E11D48]"></div>
-              <span className="text-[10px] font-bold tracking-[0.3em] text-[#E11D48] uppercase">Quantifiable Impact</span>
-              <div className="w-8 h-[2px] bg-[#E11D48]"></div>
+              <div className="w-8 h-[2px] bg-[#E91E8C]"></div>
+              <span className="text-[10px] font-bold tracking-[0.3em] text-[#E91E8C] uppercase">Quantifiable Impact</span>
+              <div className="w-8 h-[2px] bg-[#E91E8C]"></div>
             </div>
             <h2 className="text-5xl md:text-7xl font-bold font-serif text-white tracking-tighter leading-none mb-6">
               Impact in Numbers.

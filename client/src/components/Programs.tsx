@@ -29,8 +29,8 @@ export const Programs = () => {
       title: "Community Programs",
       description: "Building strong support networks, self-help groups, and community-driven initiatives for lasting social impact.",
       bg: "bg-pink-50/50",
-      iconBg: "bg-[#FFE4E6]",
-      iconColor: "text-[#E11D48]",
+      iconBg: "bg-[#FFD6EC]",
+      iconColor: "text-[#E91E8C]",
       borderColor: "border-pink-100",
       hoverShadow: "hover:shadow-[0_20px_40px_-15px_rgba(233,30,140,0.2)]"
     },
@@ -47,21 +47,21 @@ export const Programs = () => {
   ];
 
   return (
-    <section id="programs" className="py-32 bg-[#FFE4E6]/10 relative">
+    <section id="programs" className="py-32 bg-[#FFD6EC]/10 relative">
       {/* Decorative background elements */}
-      <div className="absolute top-[20%] left-0 w-[600px] h-[600px] bg-[#E11D48]/5 rounded-full blur-[100px] -z-10" />
+      <div className="absolute top-[20%] left-0 w-[600px] h-[600px] bg-[#E91E8C]/5 rounded-full blur-[100px] -z-10" />
       
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-gray-100 text-[#E11D48] font-semibold text-sm mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-gray-100 text-[#E91E8C] font-semibold text-sm mb-6">
               Our Initiatives
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-[#0F172A] leading-tight">
-              Creating Impact Through <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E11D48] to-[#FDA4AF]">Action.</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-[#1A1A2E] leading-tight">
+              Creating Impact Through <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E91E8C] to-[#FF6BB5]">Action.</span>
             </h2>
           </div>
-          <a href="#volunteer" className="inline-flex items-center gap-2 text-[#0F172A] font-bold hover:text-[#E11D48] transition-colors pb-2 border-b-2 border-[#0F172A] hover:border-[#E11D48]">
+          <a href="#volunteer" className="inline-flex items-center gap-2 text-[#1A1A2E] font-bold hover:text-[#E91E8C] transition-colors pb-2 border-b-2 border-[#1A1A2E] hover:border-[#E91E8C]">
             View all programs <ArrowRight size={20} />
           </a>
         </div>
@@ -84,7 +84,7 @@ export const Programs = () => {
                 {program.icon}
               </div>
               
-              <h3 className="text-2xl font-bold font-serif text-[#0F172A] mb-4 leading-snug">{program.title}</h3>
+              <h3 className="text-2xl font-bold font-serif text-[#1A1A2E] mb-4 leading-snug">{program.title}</h3>
               <p className="text-gray-600 mb-8 leading-relaxed font-medium">{program.description}</p>
               
               <div className={`mt-auto inline-flex items-center gap-2 font-bold ${program.iconColor} group-hover:gap-4 transition-all duration-300`}>

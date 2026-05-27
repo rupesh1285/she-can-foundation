@@ -40,30 +40,30 @@ export const Testimonials = () => {
   }, []);
 
   return (
-    <section className="py-32 bg-[#0F172A] relative overflow-hidden">
+    <section className="py-32 bg-[#1A0A12] relative overflow-hidden">
       {/* Dynamic Background */}
       <div className="absolute top-0 right-0 w-full h-full opacity-30">
-        <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] bg-[#E11D48] rounded-full blur-[150px] mix-blend-screen"></div>
-        <div className="absolute bottom-[10%] left-[20%] w-[500px] h-[500px] bg-[#FDA4AF] rounded-full blur-[150px] mix-blend-screen"></div>
+        <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] bg-[#E91E8C] rounded-full blur-[150px] mix-blend-screen"></div>
+        <div className="absolute bottom-[10%] left-[20%] w-[500px] h-[500px] bg-[#FF6BB5] rounded-full blur-[150px] mix-blend-screen"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div>
             <div className="inline-flex items-center gap-3 px-1 mb-6">
-              <div className="w-8 h-[2px] bg-[#FDA4AF]"></div>
-              <span className="text-[10px] font-bold tracking-[0.3em] text-[#FDA4AF] uppercase">Success Stories</span>
+              <div className="w-8 h-[2px] bg-[#FF6BB5]"></div>
+              <span className="text-[10px] font-bold tracking-[0.3em] text-[#FF6BB5] uppercase">Success Stories</span>
             </div>
             <h2 className="text-4xl md:text-6xl font-bold font-serif text-white tracking-tighter leading-tight max-w-2xl">
               Real Impact. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E11D48] to-[#FDA4AF]">Real Lives.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E91E8C] to-[#FF6BB5]">Real Lives.</span>
             </h2>
           </div>
           <div className="flex gap-4">
-            <button onClick={prevSlide} className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#0F172A] transition-colors">
+            <button onClick={prevSlide} className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#1A0A12] transition-colors">
               <ChevronLeft size={24} />
             </button>
-            <button onClick={nextSlide} className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#0F172A] transition-colors">
+            <button onClick={nextSlide} className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#1A0A12] transition-colors">
               <ChevronRight size={24} />
             </button>
           </div>
@@ -81,7 +81,7 @@ export const Testimonials = () => {
             >
               {/* Image Side */}
               <div className="w-full md:w-1/2 h-[300px] md:h-full relative rounded-[2rem] overflow-hidden group">
-                <div className="absolute inset-0 bg-[#E11D48]/20 mix-blend-overlay z-10 group-hover:bg-transparent transition-colors duration-700"></div>
+                <div className="absolute inset-0 bg-[#E91E8C]/20 mix-blend-overlay z-10 group-hover:bg-transparent transition-colors duration-700"></div>
                 <img 
                   src={testimonials[currentIndex].image} 
                   alt={testimonials[currentIndex].name} 
@@ -97,7 +97,7 @@ export const Testimonials = () => {
                 </p>
                 <div>
                   <h4 className="text-xl font-bold text-white tracking-wide">{testimonials[currentIndex].name}</h4>
-                  <p className="text-[#FDA4AF] font-medium uppercase tracking-widest text-xs mt-2">{testimonials[currentIndex].role}</p>
+                  <p className="text-[#FF6BB5] font-medium uppercase tracking-widest text-xs mt-2">{testimonials[currentIndex].role}</p>
                 </div>
               </div>
             </motion.div>
@@ -110,7 +110,7 @@ export const Testimonials = () => {
             <button 
               key={idx}
               onClick={() => setCurrentIndex(idx)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === currentIndex ? 'bg-[#E11D48] w-8' : 'bg-white/20 hover:bg-white/50'}`}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === currentIndex ? 'bg-[#E91E8C] w-8' : 'bg-white/20 hover:bg-white/50'}`}
             />
           ))}
         </div>

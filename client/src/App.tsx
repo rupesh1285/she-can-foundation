@@ -12,8 +12,8 @@ const AdminDashboard = React.lazy(() => import('./pages/AdminDashboard'));
 
 // Loading fallback component
 const Loader = () => (
-  <div className="min-h-screen flex items-center justify-center bg-[#FFE4E6]/10">
-    <div className="w-16 h-16 border-4 border-[#FFE4E6] border-t-[#E11D48] rounded-full animate-spin"></div>
+  <div className="min-h-screen flex items-center justify-center bg-[#FFD6EC]/10">
+    <div className="w-16 h-16 border-4 border-[#FFD6EC] border-t-[#E91E8C] rounded-full animate-spin"></div>
   </div>
 );
 
