@@ -18,7 +18,7 @@ export const StoriesPage = () => {
             <div className="lg:w-1/2 w-full">
               <ImagePlaceholder 
                 label="STORY — Ground level photo: sanitary pad drive"
-                path="/public/images/story-1.jpg"
+                path="/images/Image of a man having food in hand and he is happy.avif"
                 ratio="16:9"
                 className="rounded-3xl shadow-lg"
               />
@@ -37,7 +37,7 @@ export const StoriesPage = () => {
             <div className="lg:w-1/2 w-full">
               <ImagePlaceholder 
                 label="STORY — Women learning on computers/phones"
-                path="/public/images/story-2.jpg"
+                path="/images/Happy kids image of backward class.avif"
                 ratio="16:9"
                 className="rounded-3xl shadow-lg border border-white/10"
               />
@@ -57,7 +57,7 @@ export const StoriesPage = () => {
             <div className="lg:w-1/2 w-full relative z-10">
               <ImagePlaceholder 
                 label="STORY — Community kitchen/meal drive"
-                path="/public/images/story-3.jpg"
+                path="/images/Volunteers giving fod to people.webp"
                 ratio="16:9"
                 className="rounded-3xl shadow-2xl border border-white/20"
               />

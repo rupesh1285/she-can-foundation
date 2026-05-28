@@ -11,7 +11,7 @@ export const Programs = ({ isPreview = false }) => {
       description: "Providing quality education and vocational training to underprivileged women to build sustainable, independent livelihoods.",
       icon: <Laptop size={32} />,
       imageLabel: "PROGRAM — Women in education/training session",
-      imagePath: "/public/images/program-education.jpg",
+      imagePath: "/images/A volunteer teaching students.avif",
       activities: ["Vocational training", "Digital education", "Scholarship support", "Livelihood programs"],
       stat: null
     },
@@ -20,7 +20,7 @@ export const Programs = ({ isPreview = false }) => {
       description: "Promoting healthcare access, menstrual hygiene awareness, and distributing sanitary pads and dignity kits to girls across India.",
       icon: <Heart size={32} />,
       imageLabel: "PROGRAM — Sanitary pad distribution drive photo",
-      imagePath: "/public/images/program-healthcare.jpg",
+      imagePath: "/images/More peple with food.avif",
       activities: ["Free sanitary pad distribution", "Menstrual hygiene workshops", "Dignity kit drives", "School awareness programs"],
       stat: "1,20,000+ girls reached"
     },
@@ -29,7 +29,7 @@ export const Programs = ({ isPreview = false }) => {
       description: "Teaching essential digital skills to bridge the technology gap for women across India in the modern, connected economy.",
       icon: <Shield size={32} />,
       imageLabel: "PROGRAM — Women learning on computers/phones",
-      imagePath: "/public/images/program-digital.jpg",
+      imagePath: "/images/program-digital.jpg",
       activities: ["Computer training", "Mobile literacy", "Online safety workshops", "Digital entrepreneurship"],
       stat: null
     },
@@ -38,7 +38,7 @@ export const Programs = ({ isPreview = false }) => {
       description: "Building strong support networks, self-help groups, and community-driven initiatives for lasting social impact.",
       icon: <Users size={32} />,
       imageLabel: "PROGRAM — Community gathering or self-help group",
-      imagePath: "/public/images/program-community.jpg",
+      imagePath: "/images/Kids and mother with food.avif",
       activities: ["Self-help groups", "Community kitchens", "Cloth donation drives", "Awareness campaigns"],
       stat: null
     }

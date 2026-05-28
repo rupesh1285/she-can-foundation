@@ -145,7 +145,7 @@ export const ContactPage = () => {
         <div className="mt-16 max-w-6xl mx-auto">
           <ImagePlaceholder 
             label="CONTACT — Community photo / Field work"
-            path="/public/images/about-field.jpg"
+            path="/images/Must use image, having so much happy children and voulnteer.avif"
             ratio="16:9"
             className="rounded-[3rem]"
           />

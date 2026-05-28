@@ -27,7 +27,7 @@ export const AboutPage = () => {
           <div>
             <ImagePlaceholder 
               label="ABOUT — Field work photo: women sitting in outdoor learning session"
-              path="/public/images/about-field.jpg"
+              path="/images/Must use image, having so much happy children and voulnteer.avif"
               ratio="4:3"
               className="shadow-2xl"
             />
@@ -62,7 +62,7 @@ export const AboutPage = () => {
             <div className="w-64 shrink-0">
               <ImagePlaceholder 
                 label="FOUNDER — Photo of Reeta Mishra, Founder & President"
-                path="/public/images/founder-reeta.jpg"
+                path="/images/founder-reeta.jpg"
                 ratio="1:1"
                 className="rounded-full shadow-[0_0_50px_rgba(225,29,72,0.3)] border-4 border-white/10"
               />
@@ -89,7 +89,7 @@ export const AboutPage = () => {
             <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
               <ImagePlaceholder 
                 label="CERTIFICATE"
-                path="/public/images/certificate.jpg"
+                path="/images/Image od the certificate.avif"
                 ratio="4:3"
                 className="w-96"
               />
@@ -126,7 +126,7 @@ export const AboutPage = () => {
               <div className="mt-12 flex flex-col items-center">
                 <ImagePlaceholder 
                   label="CERTIFICATE — Society Registration Certificate image"
-                  path="/public/images/certificate.jpg"
+                  path="/images/Image od the certificate.avif"
                   ratio="4:3"
                   className="w-full max-w-lg mx-auto"
                 />

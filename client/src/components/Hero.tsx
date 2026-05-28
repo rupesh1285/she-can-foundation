@@ -96,7 +96,7 @@ export const Hero = () => {
             <div className="w-full aspect-[4/5] lg:aspect-auto lg:h-[90%] rounded-[2.5rem] p-3 bg-white/40 backdrop-blur-xl border border-white/60 shadow-2xl shadow-[#E11D48]/10 rotate-2 hover:rotate-0 transition-transform duration-700">
               <ImagePlaceholder 
                 label="HERO — Group photo of She Can Foundation volunteers and community women"
-                path="/public/images/hero-main.jpg"
+                path="/images/Hero image.avif"
                 className="h-full w-full rounded-[2rem] object-cover shadow-inner"
               />
             </div>
