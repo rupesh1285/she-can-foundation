@@ -55,9 +55,12 @@ export const InstagramSection = () => {
           className="flex whitespace-nowrap gap-4 px-2"
         >
           {posts.map((post, index) => (
-            <div
+            <a
               key={index}
-              className="relative w-[280px] md:w-[350px] aspect-square rounded-3xl overflow-hidden shrink-0 cursor-pointer shadow-sm group/card"
+              href="https://www.instagram.com/shecanfoundation.ngo"
+              target="_blank"
+              rel="noreferrer"
+              className="relative w-[280px] md:w-[350px] aspect-square rounded-3xl overflow-hidden shrink-0 cursor-pointer shadow-sm group/card block"
             >
               <img src={post} alt="Instagram Post" className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" />
               
@@ -68,11 +71,11 @@ export const InstagramSection = () => {
                   whileInView={{ scale: 1, opacity: 1, y: 0 }}
                   className="flex flex-col items-center gap-3"
                 >
-                  <Heart size={48} className="text-white fill-white animate-pulse" />
-                  <span className="text-white font-bold tracking-wide">View Post</span>
+                  <Instagram size={48} className="text-white" />
+                  <span className="text-white font-bold tracking-wide text-lg">View our page</span>
                 </motion.div>
               </div>
-            </div>
+            </a>
           ))}
         </motion.div>
       </div>
