@@ -82,60 +82,57 @@ export const AboutPage = () => {
 
       {/* Registration Section */}
       <section className="py-24">
-        <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl text-center">
           <h2 className="text-4xl font-serif font-bold text-[#0F172A] mb-12">Registration & Legitimacy</h2>
           
-          <div className="bg-white p-10 md:p-16 rounded-[3rem] shadow-xl border border-gray-100 text-left relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-              <ImagePlaceholder 
-                label="CERTIFICATE"
-                path="/images/Image od the certificate.avif"
-                ratio="4:3"
-                className="w-96"
-              />
-            </div>
+          <div className="bg-white p-10 md:p-16 rounded-[3rem] shadow-2xl border border-gray-100 text-left relative overflow-hidden flex flex-col lg:flex-row gap-12 items-center">
             
-            <div className="relative z-10">
-              <h3 className="text-2xl font-bold text-[#0F172A] mb-8 border-b border-gray-100 pb-4">
+            {/* Left Side: Fields */}
+            <div className="flex-1 w-full relative z-10">
+              <h3 className="text-3xl font-bold text-[#0F172A] mb-8 border-b border-gray-100 pb-4">
                 Registered under Indian Society Act XXI of 1860
               </h3>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-lg">
                 <div>
                   <p className="text-gray-500 text-sm font-bold uppercase mb-1">Registration No</p>
-                  <p className="font-mono text-[#0F172A] font-medium bg-gray-50 p-3 rounded-lg border border-gray-100">KAP/00504/2023-2024</p>
+                  <p className="font-mono text-[#0F172A] font-medium bg-gray-50 p-4 rounded-xl border border-gray-100">KAP/00504/2023-2024</p>
                 </div>
                 <div>
                   <p className="text-gray-500 text-sm font-bold uppercase mb-1">File No</p>
-                  <p className="font-mono text-[#0F172A] font-medium bg-gray-50 p-3 rounded-lg border border-gray-100">K/KAP/0058902</p>
+                  <p className="font-mono text-[#0F172A] font-medium bg-gray-50 p-4 rounded-xl border border-gray-100">K/KAP/0058902</p>
                 </div>
                 <div>
                   <p className="text-gray-500 text-sm font-bold uppercase mb-1">Date</p>
-                  <p className="text-[#0F172A] font-medium bg-gray-50 p-3 rounded-lg border border-gray-100">24/04/2023</p>
+                  <p className="text-[#0F172A] font-medium bg-gray-50 p-4 rounded-xl border border-gray-100">24/04/2023</p>
                 </div>
                 <div>
                   <p className="text-gray-500 text-sm font-bold uppercase mb-1">Valid Until</p>
-                  <p className="text-[#0F172A] font-medium bg-gray-50 p-3 rounded-lg border border-gray-100">23/04/2028</p>
+                  <p className="text-[#0F172A] font-medium bg-gray-50 p-4 rounded-xl border border-gray-100">23/04/2028</p>
                 </div>
-                <div className="md:col-span-2">
+                <div className="sm:col-span-2">
                   <p className="text-gray-500 text-sm font-bold uppercase mb-1">Location</p>
-                  <p className="text-[#0F172A] font-medium bg-gray-50 p-3 rounded-lg border border-gray-100">Kanpur Nagar, Uttar Pradesh</p>
+                  <p className="text-[#0F172A] font-medium bg-gray-50 p-4 rounded-xl border border-gray-100">Kanpur Nagar, Uttar Pradesh</p>
                 </div>
               </div>
+            </div>
 
-              <div className="mt-12 flex flex-col items-center">
+            {/* Right Side: Portrait Image Frame */}
+            <div className="w-full lg:w-5/12 shrink-0">
+              <div className="p-4 bg-gray-50 rounded-[2rem] border border-gray-200 shadow-inner">
                 <ImagePlaceholder 
                   label="CERTIFICATE — Society Registration Certificate image"
                   path="/images/Image od the certificate.avif"
-                  ratio="4:3"
-                  className="w-full max-w-lg mx-auto"
+                  ratio="3:4"
+                  className="w-full h-auto rounded-2xl shadow-md border border-gray-200 object-cover"
                 />
               </div>
             </div>
+            
           </div>
 
           <div className="mt-16">
-            <Link to="/volunteer" className="inline-block px-10 py-4 bg-[#FF4500] text-white font-bold rounded-full text-lg shadow-xl hover:shadow-2xl transition-all">
+            <Link to="/volunteer" className="inline-block px-10 py-4 bg-[#FF4500] text-white font-bold rounded-full text-lg shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
               Join Our Team
             </Link>
           </div>
