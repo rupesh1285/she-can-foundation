@@ -47,7 +47,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-6xl md:text-8xl lg:text-[6.5rem] font-serif font-bold tracking-tighter leading-[0.9] text-[#0F172A] mb-8"
+              className="text-5xl md:text-7xl lg:text-[5.5rem] font-serif font-bold tracking-tighter leading-[0.9] text-[#0F172A] mb-8"
             >
               Empower a <br/>
               Woman.<br/>
@@ -55,7 +55,7 @@ export const Hero = () => {
                 <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[#FF4500] to-[#FF8C66]">
                   Change the World.
                 </span>
-                <span className="absolute bottom-2 left-0 w-full h-6 bg-[#FFDED6] -z-10 transform -rotate-1 origin-left rounded-sm opacity-50"></span>
+                <span className="absolute bottom-2 left-0 w-full h-5 bg-[#FFDED6] -z-10 transform -rotate-1 origin-left rounded-sm opacity-50"></span>
               </span>
             </motion.h1>
             
@@ -63,7 +63,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed max-w-2xl mb-12"
+              className="text-lg md:text-xl text-gray-600 font-medium leading-relaxed max-w-2xl mb-12"
             >
               We are a youth-driven NGO bridging the gap in education, health, and digital literacy for marginalized women across India.
             </motion.p>
@@ -102,45 +102,61 @@ export const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.2 }}
-            className="lg:col-span-5 relative h-[600px] w-full mt-16 lg:mt-0 hidden md:block"
+            className="lg:col-span-5 relative h-[650px] w-full mt-16 lg:mt-0 hidden md:block"
           >
             {/* Main Center Image */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               animate={{ opacity: 1, scale: 1, rotate: -2 }}
               transition={{ duration: 1, delay: 0.4, type: "spring" }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-[400px] z-20"
+              className="absolute top-[45%] left-1/2 -translate-x-[60%] -translate-y-1/2 w-64 h-[350px] z-20"
             >
-              <div className="w-full h-full p-3 bg-white rounded-3xl shadow-2xl border border-gray-100 hover:rotate-0 hover:scale-105 transition-all duration-500 cursor-pointer group">
+              <div className="w-full h-full p-2 bg-white rounded-3xl shadow-2xl border border-gray-100 hover:rotate-0 hover:scale-105 transition-all duration-500 cursor-pointer group">
                 <ImagePlaceholder 
                   label="HERO 1"
-                  path="/images/Hero image.avif"
+                  path="/images/New image 1.jpg"
                   ratio="3:4"
                   className="w-full h-full object-cover rounded-2xl"
                 />
-                {/* Play button overlay just for visual premium feel */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl text-[#FF4500]">
-                    <Play fill="currentColor" size={24} className="ml-1" />
-                  </div>
-                </div>
               </div>
             </motion.div>
 
-            {/* Top Right Floating Image */}
+            {/* Top Right HUGE 16:9 Image (Image 2) */}
             <motion.div 
               initial={{ opacity: 0, x: 50, y: -50 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 1, delay: 0.6, type: "spring" }}
-              className="absolute top-10 right-0 w-48 h-48 z-10"
+              className="absolute top-[5%] right-[-10%] w-80 h-auto z-10"
             >
-              <div className="w-full h-full p-2 bg-white rounded-[2rem] shadow-xl border border-gray-100 rotate-6 hover:rotate-12 transition-transform duration-500">
+              <div className="w-full p-2.5 bg-white rounded-[2rem] shadow-xl border border-gray-100 rotate-3 hover:rotate-6 transition-transform duration-500">
                 <ImagePlaceholder 
                   label="HERO 2"
-                  path="/images/Happy kids image of backward class.avif"
-                  ratio="1:1"
-                  className="w-full h-full object-cover rounded-[1.5rem]"
+                  path="/images/New image 2.jpg"
+                  ratio="16:9"
+                  className="w-full h-auto object-cover rounded-[1.5rem]"
                 />
+              </div>
+            </motion.div>
+
+            {/* Bottom Right Floating Image */}
+            <motion.div 
+              initial={{ opacity: 0, x: 50, y: 50 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 1, delay: 0.7, type: "spring" }}
+              className="absolute bottom-[10%] right-[-5%] w-56 h-auto z-30"
+            >
+              <div className="w-full p-2 bg-white rounded-[1.5rem] shadow-2xl border border-gray-100 -rotate-3 hover:-rotate-6 transition-transform duration-500">
+                <ImagePlaceholder 
+                  label="HERO 3"
+                  path="/images/new image 3.jpeg"
+                  ratio="4:3"
+                  className="w-full h-auto object-cover rounded-xl"
+                />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl text-[#FF4500] cursor-pointer">
+                    <Play fill="currentColor" size={20} className="ml-1" />
+                  </div>
+                </div>
               </div>
             </motion.div>
 
@@ -149,14 +165,14 @@ export const Hero = () => {
               initial={{ opacity: 0, x: -50, y: 50 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 1, delay: 0.8, type: "spring" }}
-              className="absolute bottom-10 left-0 w-56 h-64 z-30"
+              className="absolute bottom-[-2%] left-[10%] w-48 h-auto z-40"
             >
-              <div className="w-full h-full p-2.5 bg-white rounded-[2rem] shadow-2xl border border-gray-100 -rotate-6 hover:-rotate-12 transition-transform duration-500">
+              <div className="w-full p-2 bg-white rounded-[1.5rem] shadow-2xl border border-gray-100 -rotate-6 hover:-rotate-12 transition-transform duration-500">
                 <ImagePlaceholder 
-                  label="HERO 3"
-                  path="/images/A volunteer teaching students.avif"
-                  ratio="3:4"
-                  className="w-full h-full object-cover rounded-2xl"
+                  label="HERO 4"
+                  path="/images/new image 4.jpeg"
+                  ratio="1:1"
+                  className="w-full h-auto object-cover rounded-[1rem]"
                 />
               </div>
             </motion.div>

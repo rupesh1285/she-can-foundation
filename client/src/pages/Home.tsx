@@ -112,8 +112,20 @@ export const Home = () => {
 
       {/* Volunteer CTA */}
       <section className="py-32 bg-[#0F172A] text-white text-center relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#FF4500] rounded-full blur-[150px] opacity-20"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#FFDED6] rounded-full blur-[150px] opacity-10"></div>
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <ImagePlaceholder 
+            label="BE THE CHANGE BACKGROUND"
+            path="/images/Must use image, having so much happy children and voulnteer.avif"
+            ratio="auto"
+            className="w-full h-full object-cover opacity-30"
+          />
+          {/* Overlay to ensure text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/80 to-[#0F172A]/90"></div>
+        </div>
+
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#FF4500] rounded-full blur-[150px] opacity-20 z-0"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#FFDED6] rounded-full blur-[150px] opacity-10 z-0"></div>
         
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
@@ -122,8 +134,8 @@ export const Home = () => {
           transition={{ duration: 0.8, type: "spring" }}
           className="container mx-auto px-4 relative z-10"
         >
-          <h2 className="text-5xl md:text-7xl lg:text-[5rem] font-serif font-black mb-8 tracking-tighter">Be The Change</h2>
-          <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-12 text-gray-400 leading-relaxed font-medium">Join our community of changemakers and help us create a world where every woman thrives.</p>
+          <h2 className="text-5xl md:text-7xl lg:text-[5rem] font-serif font-black mb-8 tracking-tighter drop-shadow-2xl">Be The Change</h2>
+          <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-12 text-gray-300 leading-relaxed font-medium drop-shadow-md">Join our community of changemakers and help us create a world where every woman thrives.</p>
           <Link to="/volunteer" className="inline-block px-12 py-5 bg-[#FF4500] text-white font-bold rounded-full text-xl shadow-xl shadow-[#FF4500]/20 hover:shadow-2xl hover:shadow-[#FF4500]/40 hover:-translate-y-1 hover:scale-105 transition-all duration-300">
             Join Our Community
           </Link>
