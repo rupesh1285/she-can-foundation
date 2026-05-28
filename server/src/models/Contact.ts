@@ -5,15 +5,13 @@ export interface IContact extends Document {
   email: string;
   message: string;
   status: 'new' | 'reviewed';
-  createdAt: Date;
 }
 
 const ContactSchema = new Schema<IContact>({
   name: { type: String, required: true },
-  email: { type: String, required: true },
+  email: { type: String, required: true, index: true },
   message: { type: String, required: true },
-  status: { type: String, enum: ['new', 'reviewed'], default: 'new' },
-  createdAt: { type: Date, default: Date.now }
-});
+  status: { type: String, enum: ['new', 'reviewed'], default: 'new', index: true },
+}, { timestamps: true });
 
 export const Contact = mongoose.model<IContact>('Contact', ContactSchema);
