@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { Heart, LogOut, Users, Award, MessageSquare, Download, Trash2, CheckCircle, Circle } from 'lucide-react';
-import { Volunteer, Ambassador, Contact } from '../types';
+import type { Volunteer, Ambassador, Contact } from '../types';
 
 export const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState<'volunteers' | 'ambassadors' | 'contacts'>('volunteers');
