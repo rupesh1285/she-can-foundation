@@ -285,7 +285,7 @@ export const AdminDashboard = () => {
                           </td>
                           <td className="p-4 flex gap-2">
                             {item.role !== 'master' && (
-                              <button onClick={() => handleDeleteClick('admins', item._id || item.id)} className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Delete record">
+                              <button onClick={() => handleDeleteClick('admins', (item._id || item.id) as string)} className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Delete record">
                                 <Trash2 size={18} />
                               </button>
                             )}
