@@ -41,7 +41,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 // Loading fallback
 const LoadingSpinner = () => (
   <div className="min-h-screen flex items-center justify-center bg-[#FDFBF7]">
-    <div className="w-12 h-12 border-4 border-[#FFE4E6] border-t-[#E11D48] rounded-full animate-spin"></div>
+    <div className="w-12 h-12 border-4 border-[#FFDED6] border-t-[#FF4500] rounded-full animate-spin"></div>
   </div>
 );
 

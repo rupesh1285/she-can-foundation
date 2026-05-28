@@ -24,7 +24,7 @@ export const StoriesPage = () => {
               />
             </div>
             <div className="lg:w-1/2 w-full">
-              <div className="inline-block px-4 py-2 bg-[#FFE4E6] text-[#E11D48] text-sm font-bold uppercase tracking-widest rounded-full mb-6">Healthcare & Menstrual Hygiene</div>
+              <div className="inline-block px-4 py-2 bg-[#FFDED6] text-[#FF4500] text-sm font-bold uppercase tracking-widest rounded-full mb-6">Healthcare & Menstrual Hygiene</div>
               <h2 className="text-4xl font-serif font-bold text-[#0F172A] mb-6">Her Period Shouldn't End Her Education</h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
                 Every month, girls in small villages are forced to miss school because they cannot afford sanitary pads. She Can Foundation has reached 1,20,000+ girls with free pads and dignity kits across India. By removing this barrier, we ensure that their education continues uninterrupted, giving them the power to shape their own futures.
@@ -43,7 +43,7 @@ export const StoriesPage = () => {
               />
             </div>
             <div className="lg:w-1/2 w-full">
-              <div className="inline-block px-4 py-2 bg-white/10 text-[#FDA4AF] text-sm font-bold uppercase tracking-widest rounded-full mb-6 border border-white/10">Digital Literacy</div>
+              <div className="inline-block px-4 py-2 bg-white/10 text-[#FF8C66] text-sm font-bold uppercase tracking-widest rounded-full mb-6 border border-white/10">Digital Literacy</div>
               <h2 className="text-4xl font-serif font-bold mb-6 text-white">From No Phone to Running a Business</h2>
               <p className="text-lg text-gray-300 leading-relaxed mb-8">
                 Through our digital literacy programs, women who had never used a smartphone are now running small businesses online and supporting their families. We teach essential skills like online banking, digital safety, and social media marketing to bridge the technology gap for women in the modern, connected economy.
@@ -52,7 +52,7 @@ export const StoriesPage = () => {
           </div>
 
           {/* Story 3 */}
-          <div className="flex flex-col lg:flex-row gap-12 bg-[#E11D48] text-white rounded-[3rem] p-8 md:p-12 shadow-xl items-center relative overflow-hidden">
+          <div className="flex flex-col lg:flex-row gap-12 bg-[#FF4500] text-white rounded-[3rem] p-8 md:p-12 shadow-xl items-center relative overflow-hidden">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
             <div className="lg:w-1/2 w-full relative z-10">
               <ImagePlaceholder 
@@ -75,12 +75,12 @@ export const StoriesPage = () => {
       </section>
 
       {/* Quote Banner */}
-      <section className="bg-[#FFE4E6] py-24 text-center">
+      <section className="bg-[#FFDED6] py-24 text-center">
         <div className="container mx-auto px-4 max-w-4xl">
-          <p className="text-3xl md:text-5xl font-serif font-bold text-[#E11D48] leading-tight mb-8">
+          <p className="text-3xl md:text-5xl font-serif font-bold text-[#FF4500] leading-tight mb-8">
             "When you educate and empower a woman, you change the trajectory of her entire family and community."
           </p>
-          <div className="w-16 h-1 bg-[#E11D48] mx-auto mb-8 rounded-full"></div>
+          <div className="w-16 h-1 bg-[#FF4500] mx-auto mb-8 rounded-full"></div>
           <Link to="/volunteer" className="inline-block px-10 py-4 bg-[#0F172A] text-white font-bold rounded-full text-lg shadow-xl hover:shadow-2xl transition-all">
             Be Part of the Story
           </Link>

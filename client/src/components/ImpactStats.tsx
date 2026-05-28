@@ -25,7 +25,7 @@ export const ImpactStats = () => {
               <h3 className="text-4xl md:text-5xl lg:text-6xl font-black font-serif text-white tracking-tighter mb-2">
                 {stat.number}
               </h3>
-              <p className="text-[#FDA4AF] font-bold uppercase tracking-widest text-sm">
+              <p className="text-[#FF8C66] font-bold uppercase tracking-widest text-sm">
                 {stat.label}
               </p>
             </motion.div>

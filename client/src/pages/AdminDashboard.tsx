@@ -78,7 +78,7 @@ export const AdminDashboard = () => {
     { label: 'Volunteers', count: volunteers.length, icon: <Users size={24} />, color: 'bg-blue-100 text-blue-600' },
     { label: 'Ambassadors', count: ambassadors.length, icon: <Award size={24} />, color: 'bg-purple-100 text-purple-600' },
     { label: 'Messages', count: contacts.length, icon: <MessageSquare size={24} />, color: 'bg-green-100 text-green-600' },
-    { label: 'New Today', count: [...volunteers, ...ambassadors, ...contacts].filter(i => new Date(i.createdAt).toDateString() === new Date().toDateString()).length, icon: <Heart size={24} />, color: 'bg-pink-100 text-[#E91E8C]' }
+    { label: 'New Today', count: [...volunteers, ...ambassadors, ...contacts].filter(i => new Date(i.createdAt).toDateString() === new Date().toDateString()).length, icon: <Heart size={24} />, color: 'bg-orange-100 text-[#FF4500]' }
   ];
 
   return (
@@ -93,13 +93,13 @@ export const AdminDashboard = () => {
         </div>
         
         <nav className="flex-1 space-y-2">
-          <button onClick={() => setActiveTab('volunteers')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${activeTab === 'volunteers' ? 'bg-[#E91E8C] text-white' : 'text-gray-400 hover:bg-white/10'}`}>
+          <button onClick={() => setActiveTab('volunteers')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${activeTab === 'volunteers' ? 'bg-[#FF4500] text-white' : 'text-gray-400 hover:bg-white/10'}`}>
             <Users size={20} /> Volunteers
           </button>
-          <button onClick={() => setActiveTab('ambassadors')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${activeTab === 'ambassadors' ? 'bg-[#E91E8C] text-white' : 'text-gray-400 hover:bg-white/10'}`}>
+          <button onClick={() => setActiveTab('ambassadors')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${activeTab === 'ambassadors' ? 'bg-[#FF4500] text-white' : 'text-gray-400 hover:bg-white/10'}`}>
             <Award size={20} /> Ambassadors
           </button>
-          <button onClick={() => setActiveTab('contacts')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${activeTab === 'contacts' ? 'bg-[#E91E8C] text-white' : 'text-gray-400 hover:bg-white/10'}`}>
+          <button onClick={() => setActiveTab('contacts')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${activeTab === 'contacts' ? 'bg-[#FF4500] text-white' : 'text-gray-400 hover:bg-white/10'}`}>
             <MessageSquare size={20} /> Messages
           </button>
         </nav>
@@ -161,7 +161,7 @@ export const AdminDashboard = () => {
                         {activeTab === 'contacts' && <p className="text-sm text-gray-700 truncate max-w-xs">{item.message}</p>}
                       </td>
                       <td className="p-4">
-                        <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${item.status === 'new' ? 'bg-pink-100 text-[#E91E8C]' : 'bg-green-100 text-green-700'}`}>
+                        <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${item.status === 'new' ? 'bg-orange-100 text-[#FF4500]' : 'bg-green-100 text-green-700'}`}>
                           {item.status === 'new' ? <Circle size={10} fill="currentColor" /> : <CheckCircle size={12} />}
                           {item.status}
                         </span>

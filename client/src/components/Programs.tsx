@@ -60,7 +60,7 @@ export const Programs = ({ isPreview = false }) => {
         {isPreview && (
           <div className="flex justify-between items-end mb-16">
             <h2 className="text-5xl font-serif font-bold text-[#0F172A]">Our Programs</h2>
-            <Link to="/programs" className="text-[#E11D48] font-bold hover:underline hidden md:block">View All Programs &rarr;</Link>
+            <Link to="/programs" className="text-[#FF4500] font-bold hover:underline hidden md:block">View All Programs &rarr;</Link>
           </div>
         )}
 
@@ -81,7 +81,7 @@ export const Programs = ({ isPreview = false }) => {
                 className="rounded-b-none border-b-0"
               />
               <div className="p-8">
-                <div className="w-14 h-14 bg-[#FFE4E6] text-[#E11D48] rounded-2xl flex items-center justify-center mb-6">
+                <div className="w-14 h-14 bg-[#FFDED6] text-[#FF4500] rounded-2xl flex items-center justify-center mb-6">
                   {prog.icon}
                 </div>
                 <h3 className="text-3xl font-bold font-serif text-[#0F172A] mb-4">{prog.title}</h3>
@@ -93,7 +93,7 @@ export const Programs = ({ isPreview = false }) => {
                     <ul className="space-y-3">
                       {prog.activities.map((act, i) => (
                         <li key={i} className="flex items-start gap-3 text-gray-600">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#E11D48] mt-2 shrink-0"></span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#FF4500] mt-2 shrink-0"></span>
                           {act}
                         </li>
                       ))}
@@ -112,14 +112,14 @@ export const Programs = ({ isPreview = false }) => {
 
         {isPreview && (
           <div className="mt-12 text-center md:hidden">
-            <Link to="/programs" className="inline-block px-8 py-3 bg-white border border-gray-200 rounded-full font-bold text-[#E11D48]">View All Programs</Link>
+            <Link to="/programs" className="inline-block px-8 py-3 bg-white border border-gray-200 rounded-full font-bold text-[#FF4500]">View All Programs</Link>
           </div>
         )}
 
         {!isPreview && (
-          <div className="mt-24 text-center bg-[#FFE4E6] p-12 rounded-[3rem]">
+          <div className="mt-24 text-center bg-[#FFDED6] p-12 rounded-[3rem]">
             <h2 className="text-4xl font-serif font-bold text-[#0F172A] mb-6">Support our programs</h2>
-            <a href="https://shecanfoundation.org/donate" target="_blank" rel="noopener noreferrer" className="inline-block px-10 py-4 bg-[#E11D48] text-white font-bold rounded-full text-lg shadow-xl hover:shadow-2xl transition-shadow">
+            <a href="https://shecanfoundation.org/donate" target="_blank" rel="noopener noreferrer" className="inline-block px-10 py-4 bg-[#FF4500] text-white font-bold rounded-full text-lg shadow-xl hover:shadow-2xl transition-shadow">
               Donate Now
             </a>
           </div>

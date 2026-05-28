@@ -22,7 +22,7 @@ export const Volunteer = () => {
     setLoading(false);
   };
 
-  const inputClasses = "w-full px-5 py-4 rounded-2xl border border-gray-200 focus:outline-none focus:border-[#E91E8C] focus:ring-4 focus:ring-[#FFD6EC] transition-all bg-gray-50/50 hover:bg-white text-gray-800 font-medium";
+  const inputClasses = "w-full px-5 py-4 rounded-2xl border border-gray-200 focus:outline-none focus:border-[#FF4500] focus:ring-4 focus:ring-[#FFD6EC] transition-all bg-gray-50/50 hover:bg-white text-gray-800 font-medium";
 
   return (
     <section id="volunteer" className="py-24 bg-gradient-to-b from-white to-[#FFD6EC]/20 relative overflow-hidden">
@@ -43,7 +43,7 @@ export const Volunteer = () => {
               className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute bottom-0 left-0 w-full p-10 z-20">
-              <div className="inline-block px-4 py-2 bg-[#E91E8C] text-white rounded-full text-sm font-bold mb-4">Be The Change</div>
+              <div className="inline-block px-4 py-2 bg-[#FF4500] text-white rounded-full text-sm font-bold mb-4">Be The Change</div>
               <h3 className="text-3xl font-bold font-serif text-white mb-3">Join our community of changemakers.</h3>
               <p className="text-gray-200">Your time and skills can help transform the lives of thousands of women across India.</p>
             </div>
@@ -103,7 +103,7 @@ export const Volunteer = () => {
                 whileTap={{ scale: 0.98 }}
                 disabled={loading} 
                 type="submit" 
-                className="w-full py-5 rounded-2xl text-white font-bold text-lg bg-gradient-to-r from-[#E91E8C] to-[#FF6BB5] shadow-[0_10px_20px_-10px_rgba(233,30,140,0.5)] hover:shadow-[0_15px_30px_-10px_rgba(233,30,140,0.6)] disabled:opacity-70 transition-all flex justify-center items-center gap-2"
+                className="w-full py-5 rounded-2xl text-white font-bold text-lg bg-gradient-to-r from-[#FF4500] to-[#FF6BB5] shadow-[0_10px_20px_-10px_rgba(233,30,140,0.5)] hover:shadow-[0_15px_30px_-10px_rgba(233,30,140,0.6)] disabled:opacity-70 transition-all flex justify-center items-center gap-2"
               >
                 {loading ? (
                   <span className="flex items-center gap-2">

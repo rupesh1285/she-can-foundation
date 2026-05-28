@@ -21,7 +21,7 @@ export const ContactSection = () => {
     setLoading(false);
   };
 
-  const inputClasses = "w-full px-5 py-4 rounded-2xl border border-gray-200 focus:outline-none focus:border-[#E91E8C] focus:ring-4 focus:ring-[#FFD6EC] transition-all bg-white text-gray-800 font-medium placeholder:text-gray-400";
+  const inputClasses = "w-full px-5 py-4 rounded-2xl border border-gray-200 focus:outline-none focus:border-[#FF4500] focus:ring-4 focus:ring-[#FFD6EC] transition-all bg-white text-gray-800 font-medium placeholder:text-gray-400";
 
   return (
     <section id="contact" className="py-24 bg-white relative">
@@ -35,7 +35,7 @@ export const ContactSection = () => {
         <div className="flex flex-col lg:flex-row bg-[#FFD6EC]/10 rounded-[3rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] border border-[#FFD6EC]/50 overflow-hidden">
           
           <div className="lg:w-2/5 relative overflow-hidden group p-10 md:p-14 text-white flex flex-col">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#E91E8C] to-[#1A0A12] z-0 transition-transform duration-700 group-hover:scale-105"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-[#FF4500] to-[#1A0A12] z-0 transition-transform duration-700 group-hover:scale-105"></div>
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl z-10"></div>
             <div className="absolute bottom-[-20%] left-[-20%] w-80 h-80 bg-[#FF6BB5]/20 rounded-full blur-3xl z-10"></div>
             

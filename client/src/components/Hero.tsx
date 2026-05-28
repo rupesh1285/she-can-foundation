@@ -14,8 +14,8 @@ export const Hero = () => {
       
       {/* Soft Ambient Glows */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-[#FFE4E6] blur-[120px] opacity-60"></div>
-        <div className="absolute top-[20%] -right-[10%] w-[40%] h-[60%] rounded-full bg-[#E11D48]/10 blur-[150px] opacity-60"></div>
+        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-[#FFDED6] blur-[120px] opacity-60"></div>
+        <div className="absolute top-[20%] -right-[10%] w-[40%] h-[60%] rounded-full bg-[#FF4500]/10 blur-[150px] opacity-60"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
@@ -30,10 +30,10 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#E11D48]/20 shadow-sm mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#FF4500]/20 shadow-sm mb-6"
             >
-              <span className="w-2 h-2 rounded-full bg-[#E11D48] animate-pulse"></span>
-              <span className="text-sm font-bold text-[#E11D48] tracking-wide uppercase">NITI Aayog Affiliated 🇮🇳</span>
+              <span className="w-2 h-2 rounded-full bg-[#FF4500] animate-pulse"></span>
+              <span className="text-sm font-bold text-[#FF4500] tracking-wide uppercase">NITI Aayog Affiliated 🇮🇳</span>
             </motion.div>
             
             <motion.h1 
@@ -44,7 +44,7 @@ export const Hero = () => {
             >
               Empowering <br/>
               Women.<br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E11D48] to-[#FDA4AF]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF4500] to-[#FF8C66]">
                 Transforming
               </span> Lives.
             </motion.h1>
@@ -68,7 +68,7 @@ export const Hero = () => {
                 to="/volunteer"
                 className="group relative px-8 py-4 rounded-full bg-[#0F172A] text-white font-bold text-lg overflow-hidden flex items-center gap-2 transition-transform hover:scale-105"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#E11D48] to-[#FDA4AF] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#FF4500] to-[#FF8C66] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <span className="relative z-10 flex items-center gap-2">
                   Volunteer With Us <Heart size={20} className="group-hover:fill-white transition-all" />
                 </span>
@@ -76,10 +76,10 @@ export const Hero = () => {
               
               <Link 
                 to="/programs" 
-                className="group flex items-center gap-3 text-lg font-bold text-[#0F172A] hover:text-[#E11D48] transition-colors"
+                className="group flex items-center gap-3 text-lg font-bold text-[#0F172A] hover:text-[#FF4500] transition-colors"
               >
                 Our Programs
-                <div className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center group-hover:bg-[#FFE4E6] transition-colors border border-gray-100">
+                <div className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center group-hover:bg-[#FFDED6] transition-colors border border-gray-100">
                   <ArrowRight size={20} className="transform group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
@@ -93,7 +93,7 @@ export const Hero = () => {
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative lg:h-[80vh] w-full mt-10 lg:mt-0 flex items-center justify-center"
           >
-            <div className="w-full aspect-[4/5] lg:aspect-auto lg:h-[90%] rounded-[2.5rem] p-3 bg-white/40 backdrop-blur-xl border border-white/60 shadow-2xl shadow-[#E11D48]/10 rotate-2 hover:rotate-0 transition-transform duration-700">
+            <div className="w-full aspect-[4/5] lg:aspect-auto lg:h-[90%] rounded-[2.5rem] p-3 bg-white/40 backdrop-blur-xl border border-white/60 shadow-2xl shadow-[#FF4500]/10 rotate-2 hover:rotate-0 transition-transform duration-700">
               <ImagePlaceholder 
                 label="HERO — Group photo of She Can Foundation volunteers and community women"
                 path="/images/Hero image.avif"

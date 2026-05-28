@@ -39,7 +39,7 @@ export const InstagramSection = () => {
             href="https://www.instagram.com/shecanfoundation.ngo" 
             target="_blank" 
             rel="noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-medium bg-gradient-to-r from-[#E91E8C] to-[#FF6BB5] hover:shadow-[0_10px_25px_-5px_rgba(233,30,140,0.4)] transition-all hover:scale-105 shrink-0"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-medium bg-gradient-to-r from-[#FF4500] to-[#FF6BB5] hover:shadow-[0_10px_25px_-5px_rgba(233,30,140,0.4)] transition-all hover:scale-105 shrink-0"
           >
             <Instagram size={20} />
             Follow Us
@@ -65,7 +65,7 @@ export const InstagramSection = () => {
               <img src={post} alt="Instagram Post" className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" />
               
               {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1A0A12]/90 via-[#E91E8C]/60 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center backdrop-blur-[2px]">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A0A12]/90 via-[#FF4500]/60 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center backdrop-blur-[2px]">
                 <motion.div 
                   initial={{ scale: 0.5, opacity: 0, y: 20 }}
                   whileInView={{ scale: 1, opacity: 1, y: 0 }}

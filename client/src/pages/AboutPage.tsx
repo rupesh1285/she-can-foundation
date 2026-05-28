@@ -39,8 +39,8 @@ export const AboutPage = () => {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-12 bg-[#FFE4E6]/50 rounded-[3rem] border border-[#E11D48]/10">
-              <h3 className="text-3xl font-serif font-bold text-[#E11D48] mb-4">Our Mission</h3>
+            <div className="p-12 bg-[#FFDED6]/50 rounded-[3rem] border border-[#FF4500]/10">
+              <h3 className="text-3xl font-serif font-bold text-[#FF4500] mb-4">Our Mission</h3>
               <p className="text-lg text-gray-700 leading-relaxed">
                 To empower women and girls from marginalized communities through targeted interventions in education, health, and skill development, enabling them to lead independent and dignified lives.
               </p>
@@ -73,7 +73,7 @@ export const AboutPage = () => {
               </p>
               <div>
                 <h4 className="text-2xl font-bold text-white">Reeta Mishra</h4>
-                <p className="text-[#FDA4AF] uppercase tracking-widest text-sm font-bold mt-1">Founder & President, She Can Foundation</p>
+                <p className="text-[#FF8C66] uppercase tracking-widest text-sm font-bold mt-1">Founder & President, She Can Foundation</p>
               </div>
             </div>
           </div>
@@ -135,7 +135,7 @@ export const AboutPage = () => {
           </div>
 
           <div className="mt-16">
-            <Link to="/volunteer" className="inline-block px-10 py-4 bg-[#E11D48] text-white font-bold rounded-full text-lg shadow-xl hover:shadow-2xl transition-all">
+            <Link to="/volunteer" className="inline-block px-10 py-4 bg-[#FF4500] text-white font-bold rounded-full text-lg shadow-xl hover:shadow-2xl transition-all">
               Join Our Team
             </Link>
           </div>

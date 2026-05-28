@@ -41,7 +41,7 @@ export const ContactPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           
           {/* Contact Info Card */}
-          <div className="bg-gradient-to-br from-[#E11D48] to-[#9f1239] text-white p-10 md:p-12 rounded-[3rem] shadow-2xl relative overflow-hidden flex flex-col justify-between">
+          <div className="bg-gradient-to-br from-[#FF4500] to-[#9f1239] text-white p-10 md:p-12 rounded-[3rem] shadow-2xl relative overflow-hidden flex flex-col justify-between">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
             
             <div className="relative z-10">
@@ -84,10 +84,10 @@ export const ContactPage = () => {
             </div>
 
             <div className="mt-12 flex gap-4 relative z-10">
-              <a href="https://www.instagram.com/shecanfoundation.ngo" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white hover:text-[#E11D48] transition-all">
+              <a href="https://www.instagram.com/shecanfoundation.ngo" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white hover:text-[#FF4500] transition-all">
                 <Instagram size={20} />
               </a>
-              <a href="https://linkedin.com/company/shecanfoundation" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white hover:text-[#E11D48] transition-all">
+              <a href="https://linkedin.com/company/shecanfoundation" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white hover:text-[#FF4500] transition-all">
                 <Linkedin size={20} />
               </a>
             </div>
@@ -104,7 +104,7 @@ export const ContactPage = () => {
                   required
                   value={formData.name}
                   onChange={e => setFormData({...formData, name: e.target.value})}
-                  className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#E11D48]/50 focus:border-[#E11D48] transition-colors"
+                  className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF4500]/50 focus:border-[#FF4500] transition-colors"
                   placeholder="Your name"
                 />
               </div>
@@ -115,7 +115,7 @@ export const ContactPage = () => {
                   required
                   value={formData.email}
                   onChange={e => setFormData({...formData, email: e.target.value})}
-                  className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#E11D48]/50 focus:border-[#E11D48] transition-colors"
+                  className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF4500]/50 focus:border-[#FF4500] transition-colors"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -126,7 +126,7 @@ export const ContactPage = () => {
                   rows={4}
                   value={formData.message}
                   onChange={e => setFormData({...formData, message: e.target.value})}
-                  className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#E11D48]/50 focus:border-[#E11D48] transition-colors resize-none"
+                  className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF4500]/50 focus:border-[#FF4500] transition-colors resize-none"
                   placeholder="How can we help?"
                 ></textarea>
               </div>

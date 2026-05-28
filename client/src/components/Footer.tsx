@@ -23,12 +23,12 @@ export const Footer = () => {
             viewport={{ once: true }}
             className="text-5xl md:text-7xl lg:text-[7rem] font-serif font-bold tracking-tighter leading-[0.9] mb-12 max-w-4xl"
           >
-            Let's create <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E11D48] to-[#FDA4AF]">impact</span> together.
+            Let's create <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF4500] to-[#FF8C66]">impact</span> together.
           </motion.h2>
           
-          <Link to="/volunteer" className="inline-flex items-center gap-4 text-2xl md:text-4xl font-bold border-b-4 border-white/30 hover:border-[#E11D48] pb-2 transition-colors group">
+          <Link to="/volunteer" className="inline-flex items-center gap-4 text-2xl md:text-4xl font-bold border-b-4 border-white/30 hover:border-[#FF4500] pb-2 transition-colors group">
             Start a conversation 
-            <ArrowUpRight size={40} className="transform group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-300 text-[#E11D48]" />
+            <ArrowUpRight size={40} className="transform group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-300 text-[#FF4500]" />
           </Link>
         </div>
 
@@ -52,7 +52,7 @@ export const Footer = () => {
               </div>
               <div className="flex flex-col">
                 <span className="font-serif font-bold text-3xl tracking-tight leading-none mb-1">She Can!</span>
-                <span className="text-xs font-bold tracking-[0.3em] text-[#E11D48] uppercase leading-tight">Foundation</span>
+                <span className="text-xs font-bold tracking-[0.3em] text-[#FF4500] uppercase leading-tight">Foundation</span>
               </div>
             </div>
             <p className="text-gray-400 text-lg font-medium leading-relaxed max-w-sm mb-10">
@@ -65,7 +65,7 @@ export const Footer = () => {
                 { icon: <Instagram size={20} />, href: "https://www.instagram.com/shecanfoundation.ngo" },
                 { icon: <Linkedin size={20} />, href: "https://linkedin.com/company/shecanfoundation" }
               ].map((social, i) => (
-                <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#E11D48] hover:border-[#E11D48] transition-all duration-300 hover:scale-110 hover:-translate-y-1">
+                <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#FF4500] hover:border-[#FF4500] transition-all duration-300 hover:scale-110 hover:-translate-y-1">
                   {social.icon}
                 </a>
               ))}
@@ -82,7 +82,7 @@ export const Footer = () => {
                 { name: 'Impact Stories', path: '/stories' },
                 { name: 'Volunteer', path: '/volunteer' }
               ].map((link) => (
-                <Link key={link.name} to={link.path} className="text-lg font-bold text-white hover:text-[#E11D48] transition-colors w-fit">{link.name}</Link>
+                <Link key={link.name} to={link.path} className="text-lg font-bold text-white hover:text-[#FF4500] transition-colors w-fit">{link.name}</Link>
               ))}
             </div>
           </div>
@@ -92,11 +92,11 @@ export const Footer = () => {
             <div className="flex flex-col gap-6">
               <div>
                 <p className="text-sm text-gray-400 mb-1">Email</p>
-                <a href="mailto:president@shecanfoundation.org" className="text-lg font-bold hover:text-[#E11D48] transition-colors break-words">president@shecanfoundation.org</a>
+                <a href="mailto:president@shecanfoundation.org" className="text-lg font-bold hover:text-[#FF4500] transition-colors break-words">president@shecanfoundation.org</a>
               </div>
               <div>
                 <p className="text-sm text-gray-400 mb-1">Phone</p>
-                <a href="tel:+918283841830" className="text-lg font-bold hover:text-[#E11D48] transition-colors">+91 82838 41830</a>
+                <a href="tel:+918283841830" className="text-lg font-bold hover:text-[#FF4500] transition-colors">+91 82838 41830</a>
               </div>
               <div>
                 <p className="text-sm text-gray-400 mb-1">Headquarters</p>
