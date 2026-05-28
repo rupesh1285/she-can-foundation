@@ -62,7 +62,7 @@ export const AboutPage = () => {
             <div className="w-64 shrink-0">
               <ImagePlaceholder 
                 label="FOUNDER — Photo of Reeta Mishra, Founder & President"
-                path="/images/founder-reeta.jpg"
+                path="/images/Founder.png"
                 ratio="1:1"
                 className="rounded-full shadow-[0_0_50px_rgba(225,29,72,0.3)] border-4 border-white/10"
               />
