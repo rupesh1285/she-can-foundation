@@ -113,7 +113,7 @@ export const Hero = () => {
               >
                 <ImagePlaceholder 
                   label="HERO 1"
-                  path="/images/New%20image%201.jpg"
+                  path="/images/New image 1.jpg"
                   ratio="auto"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -127,7 +127,7 @@ export const Hero = () => {
               >
                 <ImagePlaceholder 
                   label="HERO 2"
-                  path="/images/New%20image%202.jpg"
+                  path="/images/New image 2.jpg"
                   ratio="auto"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -141,7 +141,7 @@ export const Hero = () => {
               >
                 <ImagePlaceholder 
                   label="HERO 3"
-                  path="/images/Happy%20kids%20image%20of%20backward%20class.avif"
+                  path="/images/Happy kids image of backward class.avif"
                   ratio="auto"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -154,7 +154,7 @@ export const Hero = () => {
               >
                 <ImagePlaceholder 
                   label="HERO 4"
-                  path="/images/Kids%20and%20mother%20with%20food.avif"
+                  path="/images/Kids and mother with food.avif"
                   ratio="auto"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -167,7 +167,7 @@ export const Hero = () => {
               >
                 <ImagePlaceholder 
                   label="HERO 5"
-                  path="/images/Volunteers%20giving%20fod%20to%20people.webp"
+                  path="/images/Volunteers giving fod to people.webp"
                   ratio="auto"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -180,7 +180,7 @@ export const Hero = () => {
               >
                 <ImagePlaceholder 
                   label="HERO 6"
-                  path="/images/new%20image%204.jpeg"
+                  path="/images/new image 4.jpeg"
                   ratio="auto"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -193,7 +193,7 @@ export const Hero = () => {
               >
                 <ImagePlaceholder 
                   label="HERO 7"
-                  path="/images/More%20peple%20with%20food.avif"
+                  path="/images/More peple with food.avif"
                   ratio="auto"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
