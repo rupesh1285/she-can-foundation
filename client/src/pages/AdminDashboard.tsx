@@ -85,8 +85,10 @@ export const AdminDashboard = () => {
     <div className="min-h-screen bg-gray-50 flex flex-col md:flex-row">
       {/* Sidebar */}
       <aside className="w-full md:w-64 bg-[#1A0A12] text-white p-6 flex flex-col">
-        <div className="flex items-center gap-2 mb-10">
-          <Heart className="text-[#E91E8C]" fill="#E91E8C" size={24} />
+        <div className="flex items-center gap-3 mb-10">
+          <div className="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-lg overflow-hidden shrink-0">
+            <img src="/images/logo.png" alt="She Can Foundation Logo" className="w-full h-full object-contain" />
+          </div>
           <span className="text-xl font-bold font-serif">Admin Portal</span>
         </div>
         
