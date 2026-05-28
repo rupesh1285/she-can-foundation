@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Camera } from 'lucide-react';
 
 interface ImagePlaceholderProps {
@@ -14,12 +14,27 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   ratio = 'auto',
   className = ''
 }) => {
+  const [imageError, setImageError] = useState(false);
+
   const ratioClass = {
     '16:9': 'aspect-video',
     '4:3': 'aspect-[4/3]',
     '1:1': 'aspect-square',
     'auto': 'h-full w-full'
   }[ratio];
+
+  if (!imageError) {
+    return (
+      <div className={`relative overflow-hidden bg-gray-100 ${ratioClass} ${className}`}>
+        <img 
+          src={path} 
+          alt={label} 
+          onError={() => setImageError(true)}
+          className="w-full h-full object-cover"
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={`relative flex flex-col items-center justify-center bg-gradient-to-br from-[#1A0A12] to-[#3a1528] text-white p-6 overflow-hidden rounded-[2rem] border-2 border-dashed border-[#FF6BB5]/50 group ${ratioClass} ${className}`}>
