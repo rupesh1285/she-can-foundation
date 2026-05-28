@@ -30,7 +30,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#E11D48]/20 shadow-sm mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#E11D48]/20 shadow-sm mb-6"
             >
               <span className="w-2 h-2 rounded-full bg-[#E11D48] animate-pulse"></span>
               <span className="text-sm font-bold text-[#E11D48] tracking-wide uppercase">NITI Aayog Affiliated 🇮🇳</span>
@@ -40,7 +40,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-6xl md:text-8xl lg:text-[6rem] font-serif font-bold tracking-tighter leading-[0.95] text-[#0F172A] mb-8"
+              className="text-5xl md:text-7xl lg:text-[5rem] font-serif font-bold tracking-tighter leading-[0.95] text-[#0F172A] mb-6"
             >
               Empowering <br/>
               Women.<br/>
@@ -53,7 +53,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed max-w-xl mb-12"
+              className="text-lg md:text-xl text-gray-600 font-medium leading-relaxed max-w-xl mb-10"
             >
               A youth-driven NGO uplifting underprivileged women through education, digital literacy, and community-driven programs across India.
             </motion.p>
