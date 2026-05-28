@@ -4,16 +4,27 @@ import { Heart, Instagram } from 'lucide-react';
 
 export const InstagramSection = () => {
   const posts = [
-    "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    "/images/insta-1.png",
+    "/images/insta-2.png",
+    "/images/insta-3.png",
+    "/images/insta-4.png",
+    "/images/insta-5.png",
+    "/images/insta-6.png",
+    "/images/insta-7.png",
+    "/images/insta-8.png",
+    "/images/insta-9.png",
+    "/images/insta-10.png",
     // Duplicate for seamless marquee
-    "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    "/images/insta-1.png",
+    "/images/insta-2.png",
+    "/images/insta-3.png",
+    "/images/insta-4.png",
+    "/images/insta-5.png",
+    "/images/insta-6.png",
+    "/images/insta-7.png",
+    "/images/insta-8.png",
+    "/images/insta-9.png",
+    "/images/insta-10.png",
   ];
 
   return (
