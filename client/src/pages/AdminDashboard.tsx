@@ -153,9 +153,13 @@ export const AdminDashboard = () => {
             <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6 mx-auto text-red-500">
               <Trash2 size={32} />
             </div>
-            <h3 className="text-2xl font-bold text-center text-[#1A1A2E] mb-2">Confirm Deletion</h3>
-            <p className="text-center text-gray-500 mb-8 font-medium">
-              Are you absolutely sure you want to delete this record? This action cannot be undone.
+            <h3 className="text-2xl font-bold text-center text-[#1A1A2E] mb-2">
+              {deleteTarget.type === 'admins' ? 'Delete Admin' : 'Confirm Deletion'}
+            </h3>
+            <p className="text-center text-gray-500 mb-8 font-medium px-2">
+              {deleteTarget.type === 'admins' 
+                ? 'Deleting this admin will invalidate their credentials. The admin will no longer be able to log in to the admin portal using these credentials.' 
+                : 'Are you absolutely sure you want to delete this record? This action cannot be undone.'}
             </p>
             <div className="flex gap-4">
               <button 
