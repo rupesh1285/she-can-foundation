@@ -3,17 +3,23 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
-import { Heart, LogOut, Users, Award, MessageSquare, Download, Trash2, CheckCircle, Circle } from 'lucide-react';
-import type { Volunteer, Ambassador, Contact } from '../types';
+import { Heart, LogOut, Users, Award, MessageSquare, Download, Trash2, CheckCircle, Circle, Shield, Plus } from 'lucide-react';
+import type { Volunteer, Ambassador, Contact, Admin } from '../types';
 
 export const AdminDashboard = () => {
-  const [activeTab, setActiveTab] = useState<'volunteers' | 'ambassadors' | 'contacts'>('volunteers');
+  const [activeTab, setActiveTab] = useState<'volunteers' | 'ambassadors' | 'contacts' | 'admins'>('volunteers');
   const [volunteers, setVolunteers] = useState<Volunteer[]>([]);
   const [ambassadors, setAmbassadors] = useState<Ambassador[]>([]);
   const [contacts, setContacts] = useState<Contact[]>([]);
+  const [adminsList, setAdminsList] = useState<Admin[]>([]);
   const [loading, setLoading] = useState(true);
+
+  // New admin state
+  const [newAdminEmail, setNewAdminEmail] = useState('');
+  const [newAdminPassword, setNewAdminPassword] = useState('');
+  const [creatingAdmin, setCreatingAdmin] = useState(false);
   
-  const { token, logout } = useAuth();
+  const { token, role, logout } = useAuth();
   const navigate = useNavigate();
 
   const api = axios.create({
@@ -23,14 +29,23 @@ export const AdminDashboard = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const [vRes, aRes, cRes] = await Promise.all([
+      const requests = [
         api.get('/api/admin/volunteers'),
         api.get('/api/admin/ambassadors'),
         api.get('/api/admin/contacts')
-      ]);
-      setVolunteers(vRes.data);
-      setAmbassadors(aRes.data);
-      setContacts(cRes.data);
+      ];
+      
+      if (role === 'master') {
+        requests.push(api.get('/api/admin/admins'));
+      }
+      
+      const responses = await Promise.all(requests);
+      setVolunteers(responses[0].data);
+      setAmbassadors(responses[1].data);
+      setContacts(responses[2].data);
+      if (role === 'master') {
+        setAdminsList(responses[3].data);
+      }
     } catch (error) {
       toast.error('Failed to load data. Session might be expired.');
       if (axios.isAxiosError(error) && error.response?.status === 401) {
@@ -42,7 +57,7 @@ export const AdminDashboard = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [role]);
 
   const handleLogout = () => {
     logout();
@@ -65,12 +80,28 @@ export const AdminDashboard = () => {
       await api.delete(`/api/admin/${type}/${id}`);
       toast.success('Record deleted');
       fetchData();
-    } catch (error) {
-      toast.error('Failed to delete record');
+    } catch (error: any) {
+      toast.error(error.response?.data?.error || 'Failed to delete record');
     }
   };
 
+  const handleCreateAdmin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setCreatingAdmin(true);
+    try {
+      await api.post('/api/admin/admins', { email: newAdminEmail, password: newAdminPassword });
+      toast.success('Admin created successfully');
+      setNewAdminEmail('');
+      setNewAdminPassword('');
+      fetchData();
+    } catch (error: any) {
+      toast.error(error.response?.data?.error || 'Failed to create admin');
+    }
+    setCreatingAdmin(false);
+  };
+
   const downloadCSV = (type: string) => {
+    if (type === 'admins') return;
     window.open(`/api/admin/${type}/export/csv?token=${token}`, '_blank');
   };
 
@@ -102,6 +133,11 @@ export const AdminDashboard = () => {
           <button onClick={() => setActiveTab('contacts')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${activeTab === 'contacts' ? 'bg-[#FF4500] text-white' : 'text-gray-400 hover:bg-white/10'}`}>
             <MessageSquare size={20} /> Messages
           </button>
+          {role === 'master' && (
+            <button onClick={() => setActiveTab('admins')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${activeTab === 'admins' ? 'bg-[#FF4500] text-white' : 'text-gray-400 hover:bg-white/10'}`}>
+              <Shield size={20} /> Manage Admins
+            </button>
+          )}
         </nav>
 
         <button onClick={handleLogout} className="mt-auto w-full flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/10 rounded-xl transition-colors">
@@ -125,65 +161,114 @@ export const AdminDashboard = () => {
 
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
           <div className="p-6 border-b border-gray-100 flex justify-between items-center">
-            <h3 className="text-xl font-bold text-[#1A1A2E] capitalize">{activeTab}</h3>
-            <button onClick={() => downloadCSV(activeTab)} className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-sm font-medium transition-colors">
-              <Download size={16} /> Export CSV
-            </button>
+            <h3 className="text-xl font-bold text-[#1A1A2E] capitalize">{activeTab.replace('-', ' ')}</h3>
+            {activeTab !== 'admins' && (
+              <button onClick={() => downloadCSV(activeTab)} className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-sm font-medium transition-colors">
+                <Download size={16} /> Export CSV
+              </button>
+            )}
           </div>
 
-          <div className="overflow-x-auto">
-            {loading ? (
-              <div className="p-10 text-center text-gray-500">Loading data...</div>
-            ) : (
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="bg-gray-50 text-gray-500 text-sm">
-                    <th className="p-4 font-medium">Name / Email</th>
-                    <th className="p-4 font-medium">Date</th>
-                    <th className="p-4 font-medium">Details</th>
-                    <th className="p-4 font-medium">Status</th>
-                    <th className="p-4 font-medium">Actions</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  {(activeTab === 'volunteers' ? volunteers : activeTab === 'ambassadors' ? ambassadors : contacts).map((item: any) => (
-                    <tr key={item._id} className="hover:bg-gray-50 transition-colors">
-                      <td className="p-4">
-                        <p className="font-medium text-[#1A1A2E]">{item.name}</p>
-                        <p className="text-sm text-gray-500">{item.email}</p>
-                      </td>
-                      <td className="p-4 text-sm text-gray-500">
-                        {new Date(item.createdAt).toLocaleDateString()}
-                      </td>
-                      <td className="p-4">
-                        {activeTab === 'volunteers' && <p className="text-sm text-gray-700"><span className="font-medium">Role:</span> {item.contribution}</p>}
-                        {activeTab === 'ambassadors' && <p className="text-sm text-gray-700"><span className="font-medium">College:</span> {item.college}</p>}
-                        {activeTab === 'contacts' && <p className="text-sm text-gray-700 truncate max-w-xs">{item.message}</p>}
-                      </td>
-                      <td className="p-4">
-                        <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${item.status === 'new' ? 'bg-orange-100 text-[#FF4500]' : 'bg-green-100 text-green-700'}`}>
-                          {item.status === 'new' ? <Circle size={10} fill="currentColor" /> : <CheckCircle size={12} />}
-                          {item.status}
-                        </span>
-                      </td>
-                      <td className="p-4 flex gap-2">
-                        <button onClick={() => toggleStatus(activeTab, item._id)} className="p-2 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors" title="Mark as reviewed">
-                          <CheckCircle size={18} />
-                        </button>
-                        <button onClick={() => handleDelete(activeTab, item._id)} className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Delete record">
-                          <Trash2 size={18} />
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                  {(activeTab === 'volunteers' ? volunteers : activeTab === 'ambassadors' ? ambassadors : contacts).length === 0 && (
-                    <tr>
-                      <td colSpan={5} className="p-10 text-center text-gray-500">No records found.</td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
+          <div className="p-6">
+            {activeTab === 'admins' && role === 'master' && (
+              <div className="mb-8 p-6 bg-gray-50 rounded-xl border border-gray-100">
+                <h4 className="font-bold text-[#1A1A2E] mb-4 flex items-center gap-2"><Shield size={18} className="text-[#FF4500]"/> Add New Admin</h4>
+                <form onSubmit={handleCreateAdmin} className="flex flex-col md:flex-row gap-4 items-end">
+                  <div className="flex-1">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                    <input type="email" required value={newAdminEmail} onChange={e => setNewAdminEmail(e.target.value)} className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF4500]" />
+                  </div>
+                  <div className="flex-1">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <input type="password" required value={newAdminPassword} onChange={e => setNewAdminPassword(e.target.value)} className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF4500]" />
+                  </div>
+                  <button disabled={creatingAdmin} type="submit" className="px-6 py-2 bg-[#FF4500] hover:bg-[#CC3700] text-white font-medium rounded-lg flex items-center gap-2 transition-colors h-[42px]">
+                    <Plus size={18} /> {creatingAdmin ? 'Creating...' : 'Create Admin'}
+                  </button>
+                </form>
+              </div>
             )}
+
+            <div className="overflow-x-auto">
+              {loading ? (
+                <div className="p-10 text-center text-gray-500">Loading data...</div>
+              ) : (
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="bg-gray-50 text-gray-500 text-sm">
+                      <th className="p-4 font-medium">{activeTab === 'admins' ? 'Email Address' : 'Name / Email'}</th>
+                      {activeTab !== 'admins' && <th className="p-4 font-medium">Date</th>}
+                      <th className="p-4 font-medium">{activeTab === 'admins' ? 'Role' : 'Details'}</th>
+                      {activeTab !== 'admins' && <th className="p-4 font-medium">Status</th>}
+                      <th className="p-4 font-medium">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100">
+                    {activeTab === 'admins' ? (
+                      adminsList.map((item) => (
+                        <tr key={item.id} className="hover:bg-gray-50 transition-colors">
+                          <td className="p-4">
+                            <p className="font-medium text-[#1A1A2E]">{item.email}</p>
+                          </td>
+                          <td className="p-4">
+                            <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${item.role === 'master' ? 'bg-purple-100 text-purple-700' : 'bg-blue-100 text-blue-700'}`}>
+                              {item.role === 'master' ? <Shield size={12} /> : <Users size={12} />}
+                              {item.role.toUpperCase()}
+                            </span>
+                          </td>
+                          <td className="p-4 flex gap-2">
+                            {item.role !== 'master' && (
+                              <button onClick={() => handleDelete('admins', item._id || item.id)} className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Delete record">
+                                <Trash2 size={18} />
+                              </button>
+                            )}
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      (activeTab === 'volunteers' ? volunteers : activeTab === 'ambassadors' ? ambassadors : contacts).map((item: any) => (
+                        <tr key={item._id} className="hover:bg-gray-50 transition-colors">
+                          <td className="p-4">
+                            <p className="font-medium text-[#1A1A2E]">{item.name}</p>
+                            <p className="text-sm text-gray-500">{item.email}</p>
+                          </td>
+                          <td className="p-4 text-sm text-gray-500">
+                            {new Date(item.createdAt).toLocaleDateString()}
+                          </td>
+                          <td className="p-4">
+                            {activeTab === 'volunteers' && <p className="text-sm text-gray-700"><span className="font-medium">Role:</span> {item.contribution}</p>}
+                            {activeTab === 'ambassadors' && <p className="text-sm text-gray-700"><span className="font-medium">College:</span> {item.college}</p>}
+                            {activeTab === 'contacts' && <p className="text-sm text-gray-700 truncate max-w-xs">{item.message}</p>}
+                          </td>
+                          <td className="p-4">
+                            <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${item.status === 'new' ? 'bg-orange-100 text-[#FF4500]' : 'bg-green-100 text-green-700'}`}>
+                              {item.status === 'new' ? <Circle size={10} fill="currentColor" /> : <CheckCircle size={12} />}
+                              {item.status}
+                            </span>
+                          </td>
+                          <td className="p-4 flex gap-2">
+                            <button onClick={() => toggleStatus(activeTab, item._id)} className="p-2 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors" title="Mark as reviewed">
+                              <CheckCircle size={18} />
+                            </button>
+                            <button onClick={() => handleDelete(activeTab, item._id)} className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Delete record">
+                              <Trash2 size={18} />
+                            </button>
+                          </td>
+                        </tr>
+                      ))
+                    )}
+                    
+                    {/* Empty states */}
+                    {activeTab === 'admins' && adminsList.length === 0 && (
+                      <tr><td colSpan={3} className="p-10 text-center text-gray-500">No admins found.</td></tr>
+                    )}
+                    {activeTab !== 'admins' && (activeTab === 'volunteers' ? volunteers : activeTab === 'ambassadors' ? ambassadors : contacts).length === 0 && (
+                      <tr><td colSpan={5} className="p-10 text-center text-gray-500">No records found.</td></tr>
+                    )}
+                  </tbody>
+                </table>
+              )}
+            </div>
           </div>
         </div>
       </main>

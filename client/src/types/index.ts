@@ -32,4 +32,5 @@ export interface Contact {
 export interface Admin {
   id: string;
   email: string;
+  role: 'master' | 'admin';
 }

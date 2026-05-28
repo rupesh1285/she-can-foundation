@@ -1,11 +1,12 @@
 import { Router } from 'express';
-import { auth } from '../middleware/auth';
+import { auth, authorizeMaster } from '../middleware/auth';
 import {
   login,
   getVolunteers, getAmbassadors, getContacts,
   updateVolunteerStatus, updateAmbassadorStatus, updateContactStatus,
   deleteVolunteer, deleteAmbassador, deleteContact,
-  exportVolunteers, exportAmbassadors, exportContacts
+  exportVolunteers, exportAmbassadors, exportContacts,
+  getAdmins, createAdmin, deleteAdmin
 } from '../controllers/adminController';
 
 const router = Router();
@@ -30,5 +31,10 @@ router.delete('/contacts/:id', deleteContact);
 router.get('/volunteers/export/csv', exportVolunteers);
 router.get('/ambassadors/export/csv', exportAmbassadors);
 router.get('/contacts/export/csv', exportContacts);
+
+// Master Admin routes
+router.get('/admins', authorizeMaster, getAdmins);
+router.post('/admins', authorizeMaster, createAdmin);
+router.delete('/admins/:id', authorizeMaster, deleteAdmin);
 
 export default router;

@@ -5,6 +5,7 @@ export interface AuthRequest extends Request {
   admin?: {
     id: string;
     email: string;
+    role: string;
   };
 }
 
@@ -21,9 +22,16 @@ export const auth = (req: AuthRequest, res: Response, next: NextFunction) => {
       return res.status(401).json({ error: 'Token verification failed, authorization denied' });
     }
 
-    req.admin = verified as { id: string; email: string };
+    req.admin = verified as { id: string; email: string; role: string };
     next();
   } catch (err) {
     res.status(401).json({ error: 'Token is not valid' });
   }
+};
+
+export const authorizeMaster = (req: AuthRequest, res: Response, next: NextFunction) => {
+  if (req.admin?.role !== 'master') {
+    return res.status(403).json({ error: 'Forbidden. Master admin role required.' });
+  }
+  next();
 };

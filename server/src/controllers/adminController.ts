@@ -18,8 +18,8 @@ export const login = asyncHandler(async (req: Request, res: Response, next: Next
     return next(new AppError('Invalid credentials', 401));
   }
 
-  const token = jwt.sign({ id: admin._id }, process.env.JWT_SECRET || 'secret', { expiresIn: '1d' });
-  res.json({ token, admin: { email: admin.email } });
+  const token = jwt.sign({ id: admin._id, email: admin.email, role: admin.role }, process.env.JWT_SECRET || 'secret', { expiresIn: '1d' });
+  res.json({ token, admin: { email: admin.email, role: admin.role } });
 });
 
 // GET endpoints
@@ -51,3 +51,30 @@ export const deleteContact = deleteItem(Contact);
 export const exportVolunteers = asyncHandler(async (req, res) => { res.json(await Volunteer.find()); });
 export const exportAmbassadors = asyncHandler(async (req, res) => { res.json(await Ambassador.find()); });
 export const exportContacts = asyncHandler(async (req, res) => { res.json(await Contact.find()); });
+
+// Admin Management (Master Only)
+export const getAdmins = asyncHandler(async (req: Request, res: Response) => {
+  const admins = await Admin.find().select('-password');
+  res.json(admins);
+});
+
+export const createAdmin = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+  const { email, password } = req.body;
+  const existing = await Admin.findOne({ email });
+  if (existing) return next(new AppError('Email already exists', 400));
+  
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const admin = new Admin({ email, password: hashedPassword, role: 'admin' });
+  await admin.save();
+  
+  res.status(201).json({ message: 'Admin created', admin: { id: admin._id, email: admin.email, role: admin.role } });
+});
+
+export const deleteAdmin = asyncHandler(async (req: any, res: Response, next: NextFunction) => {
+  if (req.admin.id === req.params.id) {
+    return next(new AppError('Cannot delete yourself', 400));
+  }
+  const admin = await Admin.findByIdAndDelete(req.params.id);
+  if (!admin) return next(new AppError('Not found', 404));
+  res.json({ message: 'Admin deleted' });
+});

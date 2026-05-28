@@ -17,7 +17,7 @@ export const AdminLogin = () => {
     setLoading(true);
     try {
       const res = await axios.post(`/api/admin/login`, { email, password });
-      login(res.data.token);
+      login(res.data.token, res.data.admin.role);
       toast.success('Logged in successfully');
       navigate('/admin/dashboard');
     } catch (error) {
