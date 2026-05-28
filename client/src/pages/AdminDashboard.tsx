@@ -17,7 +17,6 @@ export const AdminDashboard = () => {
   const navigate = useNavigate();
 
   const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000',
     headers: { Authorization: `Bearer ${token}` }
   });
 
@@ -72,7 +71,7 @@ export const AdminDashboard = () => {
   };
 
   const downloadCSV = (type: string) => {
-    window.open(`${api.defaults.baseURL}/api/admin/${type}/export/csv?token=${token}`, '_blank');
+    window.open(`/api/admin/${type}/export/csv?token=${token}`, '_blank');
   };
 
   const stats = [
