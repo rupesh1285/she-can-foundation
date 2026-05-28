@@ -9,6 +9,9 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { Model } from 'mongoose';
 
+// Map to store active admin SSE connections
+const activeAdmins = new Map<string, Response>();
+
 // Login
 export const login = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
   const { email, password } = req.body;
@@ -76,5 +79,30 @@ export const deleteAdmin = asyncHandler(async (req: any, res: Response, next: Ne
   }
   const admin = await Admin.findByIdAndDelete(req.params.id);
   if (!admin) return next(new AppError('Not found', 404));
+  
+  // If the deleted admin is currently connected, force logout
+  const targetId = admin._id.toString();
+  if (activeAdmins.has(targetId)) {
+    const activeRes = activeAdmins.get(targetId);
+    activeRes?.write(`data: ${JSON.stringify({ action: 'force_logout' })}\n\n`);
+    activeRes?.end();
+    activeAdmins.delete(targetId);
+  }
+
   res.json({ message: 'Admin deleted' });
 });
+
+// SSE Endpoint for real-time admin events
+export const streamAdmins = (req: any, res: Response) => {
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-alive');
+  res.flushHeaders();
+
+  const adminId = req.admin.id;
+  activeAdmins.set(adminId, res);
+
+  req.on('close', () => {
+    activeAdmins.delete(adminId);
+  });
+};

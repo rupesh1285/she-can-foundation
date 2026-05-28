@@ -6,7 +6,7 @@ import {
   updateVolunteerStatus, updateAmbassadorStatus, updateContactStatus,
   deleteVolunteer, deleteAmbassador, deleteContact,
   exportVolunteers, exportAmbassadors, exportContacts,
-  getAdmins, createAdmin, deleteAdmin
+  getAdmins, createAdmin, deleteAdmin, streamAdmins
 } from '../controllers/adminController';
 
 const router = Router();
@@ -15,6 +15,9 @@ router.post('/login', login);
 
 // Protected routes
 router.use(auth);
+
+// Real-time stream for instant updates
+router.get('/stream', streamAdmins);
 
 router.get('/volunteers', getVolunteers);
 router.get('/ambassadors', getAmbassadors);

@@ -14,6 +14,10 @@ export const AdminDashboard = () => {
   const [adminsList, setAdminsList] = useState<Admin[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // Modal State
+  const [deleteTarget, setDeleteTarget] = useState<{type: string, id: string} | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
+
   // New admin state
   const [newAdminEmail, setNewAdminEmail] = useState('');
   const [newAdminPassword, setNewAdminPassword] = useState('');
@@ -59,6 +63,26 @@ export const AdminDashboard = () => {
     fetchData();
   }, [role]);
 
+  // Real-time EventSource connection for instant force-logout
+  useEffect(() => {
+    if (token) {
+      const sse = new EventSource(`/api/admin/stream?token=${token}`);
+      sse.onmessage = (e) => {
+        try {
+          const data = JSON.parse(e.data);
+          if (data.action === 'force_logout') {
+            toast.error('Your admin access has been revoked by the Master Admin.', { duration: 5000 });
+            handleLogout();
+          }
+        } catch (err) {}
+      };
+      
+      return () => {
+        sse.close();
+      };
+    }
+  }, [token]);
+
   const handleLogout = () => {
     logout();
     navigate('/admin/login');
@@ -74,15 +98,22 @@ export const AdminDashboard = () => {
     }
   };
 
-  const handleDelete = async (type: string, id: string) => {
-    if (!window.confirm('Are you sure you want to delete this record?')) return;
+  const handleDeleteClick = (type: string, id: string) => {
+    setDeleteTarget({ type, id });
+  };
+
+  const confirmDelete = async () => {
+    if (!deleteTarget) return;
+    setIsDeleting(true);
     try {
-      await api.delete(`/api/admin/${type}/${id}`);
+      await api.delete(`/api/admin/${deleteTarget.type}/${deleteTarget.id}`);
       toast.success('Record deleted');
       fetchData();
     } catch (error: any) {
       toast.error(error.response?.data?.error || 'Failed to delete record');
     }
+    setDeleteTarget(null);
+    setIsDeleting(false);
   };
 
   const handleCreateAdmin = async (e: React.FormEvent) => {
@@ -113,9 +144,41 @@ export const AdminDashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col md:flex-row">
+    <div className="min-h-screen bg-gray-50 flex flex-col md:flex-row relative">
+      
+      {/* Delete Confirmation Modal */}
+      {deleteTarget && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1A0A12]/60 backdrop-blur-sm">
+          <div className="bg-white rounded-[2rem] p-8 max-w-sm w-full shadow-2xl transform transition-all border border-gray-100">
+            <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6 mx-auto text-red-500">
+              <Trash2 size={32} />
+            </div>
+            <h3 className="text-2xl font-bold text-center text-[#1A1A2E] mb-2">Confirm Deletion</h3>
+            <p className="text-center text-gray-500 mb-8 font-medium">
+              Are you absolutely sure you want to delete this record? This action cannot be undone.
+            </p>
+            <div className="flex gap-4">
+              <button 
+                disabled={isDeleting}
+                onClick={() => setDeleteTarget(null)} 
+                className="flex-1 py-3 px-4 rounded-xl font-bold text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors"
+              >
+                Cancel
+              </button>
+              <button 
+                disabled={isDeleting}
+                onClick={confirmDelete} 
+                className="flex-1 py-3 px-4 rounded-xl font-bold text-white bg-red-500 hover:bg-red-600 transition-colors disabled:opacity-70 flex justify-center items-center gap-2"
+              >
+                {isDeleting ? 'Deleting...' : 'Delete'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Sidebar */}
-      <aside className="w-full md:w-64 bg-[#1A0A12] text-white p-6 flex flex-col">
+      <aside className="w-full md:w-64 bg-[#1A0A12] text-white p-6 flex flex-col shrink-0">
         <div className="flex items-center gap-3 mb-10">
           <div className="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-lg overflow-hidden shrink-0">
             <img src="/images/logo.png" alt="She Can Foundation Logo" className="w-full h-full object-contain" />
@@ -218,7 +281,7 @@ export const AdminDashboard = () => {
                           </td>
                           <td className="p-4 flex gap-2">
                             {item.role !== 'master' && (
-                              <button onClick={() => handleDelete('admins', item._id || item.id)} className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Delete record">
+                              <button onClick={() => handleDeleteClick('admins', item._id || item.id)} className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Delete record">
                                 <Trash2 size={18} />
                               </button>
                             )}
@@ -250,7 +313,7 @@ export const AdminDashboard = () => {
                             <button onClick={() => toggleStatus(activeTab, item._id)} className="p-2 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors" title="Mark as reviewed">
                               <CheckCircle size={18} />
                             </button>
-                            <button onClick={() => handleDelete(activeTab, item._id)} className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Delete record">
+                            <button onClick={() => handleDeleteClick(activeTab, item._id)} className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Delete record">
                               <Trash2 size={18} />
                             </button>
                           </td>

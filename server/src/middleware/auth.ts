@@ -11,7 +11,11 @@ export interface AuthRequest extends Request {
 
 export const auth = (req: AuthRequest, res: Response, next: NextFunction) => {
   try {
-    const token = req.header('Authorization')?.replace('Bearer ', '');
+    let token = req.header('Authorization')?.replace('Bearer ', '');
+    
+    if (!token && req.query.token) {
+      token = req.query.token as string;
+    }
 
     if (!token) {
       return res.status(401).json({ error: 'No authentication token, access denied' });
