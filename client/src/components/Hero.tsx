@@ -96,7 +96,7 @@ export const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Image Collage - Massive Dense Scatter */}
+          {/* Right Image Collage - Tightly Clustered Overlapping Scatter */}
           <motion.div 
             style={{ y: y2 }}
             initial={{ opacity: 0 }}
@@ -104,164 +104,168 @@ export const Hero = () => {
             transition={{ duration: 1.2, delay: 0.2 }}
             className="lg:col-span-6 relative h-[750px] w-full mt-16 lg:mt-0 hidden md:block"
           >
-            {/* 1. Center Main Image */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-              animate={{ opacity: 1, scale: 1, rotate: -2 }}
-              transition={{ duration: 1, delay: 0.4, type: "spring" }}
-              className="absolute top-[40%] left-[40%] -translate-x-1/2 -translate-y-1/2 w-64 h-[350px] z-30"
-            >
-              <div className="w-full h-full p-2 bg-white rounded-3xl shadow-2xl border border-gray-100 hover:rotate-0 hover:scale-105 transition-all duration-500 cursor-pointer group">
-                <ImagePlaceholder 
-                  label="HERO 1"
-                  path="/images/New%20image%201.jpg"
-                  ratio="3:4"
-                  className="w-full h-full object-cover rounded-2xl"
-                />
-              </div>
-            </motion.div>
+            {/* Wrapper to force tight clustering */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[550px]">
+              
+              {/* 1. Center Main Image */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+                animate={{ opacity: 1, scale: 1, rotate: -2 }}
+                transition={{ duration: 1, delay: 0.4, type: "spring" }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-[350px] z-40"
+              >
+                <div className="w-full h-full p-2 bg-white rounded-3xl shadow-2xl border border-gray-100 hover:rotate-0 hover:scale-105 hover:z-50 transition-all duration-500 cursor-pointer group">
+                  <ImagePlaceholder 
+                    label="HERO 1"
+                    path="/images/New%20image%201.jpg"
+                    ratio="3:4"
+                    className="w-full h-full object-cover rounded-2xl"
+                  />
+                </div>
+              </motion.div>
 
-            {/* 2. Top Right Huge Image */}
-            <motion.div 
-              initial={{ opacity: 0, x: 50, y: -50 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 1, delay: 0.6, type: "spring" }}
-              className="absolute top-[5%] right-[-5%] w-72 h-auto z-20"
-            >
-              <div className="w-full p-2.5 bg-white rounded-[2rem] shadow-xl border border-gray-100 rotate-3 hover:rotate-6 transition-transform duration-500">
-                <ImagePlaceholder 
-                  label="HERO 2"
-                  path="/images/New%20image%202.jpg"
-                  ratio="16:9"
-                  className="w-full h-auto object-cover rounded-[1.5rem]"
-                />
-              </div>
-            </motion.div>
+              {/* 2. Top Right Huge Image */}
+              <motion.div 
+                initial={{ opacity: 0, x: 50, y: -50 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ duration: 1, delay: 0.6, type: "spring" }}
+                className="absolute -top-10 -right-20 w-80 h-auto z-20"
+              >
+                <div className="w-full p-2.5 bg-white rounded-[2rem] shadow-xl border border-gray-100 rotate-6 hover:rotate-12 hover:z-50 transition-all duration-500">
+                  <ImagePlaceholder 
+                    label="HERO 2"
+                    path="/images/New%20image%202.jpg"
+                    ratio="16:9"
+                    className="w-full h-auto object-cover rounded-[1.5rem]"
+                  />
+                </div>
+              </motion.div>
 
-            {/* 3. Top Left Image */}
-            <motion.div 
-              initial={{ opacity: 0, x: -50, y: -20 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 1, delay: 0.5, type: "spring" }}
-              className="absolute top-[10%] left-[-10%] w-56 h-auto z-20"
-            >
-              <div className="w-full p-2 bg-white rounded-[1.5rem] shadow-lg border border-gray-100 -rotate-6 hover:-rotate-3 transition-transform duration-500">
-                <ImagePlaceholder 
-                  label="HERO 3"
-                  path="/images/Volunteers%20giving%20fod%20to%20people.webp"
-                  ratio="4:3"
-                  className="w-full h-auto object-cover rounded-xl"
-                />
-              </div>
-            </motion.div>
+              {/* 3. Top Left Image */}
+              <motion.div 
+                initial={{ opacity: 0, x: -50, y: -20 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ duration: 1, delay: 0.5, type: "spring" }}
+                className="absolute top-4 -left-24 w-56 h-auto z-30"
+              >
+                <div className="w-full p-2 bg-white rounded-[1.5rem] shadow-lg border border-gray-100 -rotate-6 hover:-rotate-3 hover:z-50 transition-all duration-500">
+                  <ImagePlaceholder 
+                    label="HERO 3"
+                    path="/images/Volunteers%20giving%20fod%20to%20people.webp"
+                    ratio="4:3"
+                    className="w-full h-auto object-cover rounded-xl"
+                  />
+                </div>
+              </motion.div>
 
-            {/* 4. Top Center Floating Image */}
-            <motion.div 
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.7, type: "spring" }}
-              className="absolute top-[-5%] left-[30%] w-48 h-auto z-10"
-            >
-              <div className="w-full p-2 bg-white rounded-[1.5rem] shadow-xl border border-gray-100 rotate-12 hover:rotate-6 transition-transform duration-500">
-                <ImagePlaceholder 
-                  label="HERO 4"
-                  path="/images/Happy%20kids%20image%20of%20backward%20class.avif"
-                  ratio="1:1"
-                  className="w-full h-auto object-cover rounded-xl"
-                />
-              </div>
-            </motion.div>
+              {/* 4. Top Center Floating Image */}
+              <motion.div 
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.7, type: "spring" }}
+                className="absolute -top-20 left-1/4 w-48 h-auto z-10"
+              >
+                <div className="w-full p-2 bg-white rounded-[1.5rem] shadow-xl border border-gray-100 rotate-12 hover:rotate-6 transition-all duration-500">
+                  <ImagePlaceholder 
+                    label="HERO 4"
+                    path="/images/Happy%20kids%20image%20of%20backward%20class.avif"
+                    ratio="1:1"
+                    className="w-full h-auto object-cover rounded-xl"
+                  />
+                </div>
+              </motion.div>
 
-            {/* 5. Middle Right Small Image */}
-            <motion.div 
-              initial={{ opacity: 0, x: 30, y: 0 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 1, delay: 0.9, type: "spring" }}
-              className="absolute top-[35%] right-[-15%] w-40 h-auto z-40"
-            >
-              <div className="w-full p-1.5 bg-white rounded-2xl shadow-xl border border-gray-100 rotate-[-8deg] hover:rotate-0 transition-transform duration-500">
-                <ImagePlaceholder 
-                  label="HERO 5"
-                  path="/images/Kids%20and%20mother%20with%20food.avif"
-                  ratio="1:1"
-                  className="w-full h-auto object-cover rounded-xl"
-                />
-              </div>
-            </motion.div>
+              {/* 5. Middle Right Small Image */}
+              <motion.div 
+                initial={{ opacity: 0, x: 30, y: 0 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ duration: 1, delay: 0.9, type: "spring" }}
+                className="absolute top-[40%] -right-28 w-44 h-auto z-50"
+              >
+                <div className="w-full p-1.5 bg-white rounded-2xl shadow-2xl border border-gray-100 rotate-[-8deg] hover:rotate-0 transition-all duration-500">
+                  <ImagePlaceholder 
+                    label="HERO 5"
+                    path="/images/Kids%20and%20mother%20with%20food.avif"
+                    ratio="1:1"
+                    className="w-full h-auto object-cover rounded-xl"
+                  />
+                </div>
+              </motion.div>
 
-            {/* 6. Middle Left Small Image */}
-            <motion.div 
-              initial={{ opacity: 0, x: -30, y: 0 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 1, delay: 0.8, type: "spring" }}
-              className="absolute top-[45%] left-[-15%] w-44 h-auto z-40"
-            >
-              <div className="w-full p-2 bg-white rounded-2xl shadow-2xl border border-gray-100 rotate-6 hover:rotate-12 transition-transform duration-500">
-                <ImagePlaceholder 
-                  label="HERO 6"
-                  path="/images/new%20image%204.jpeg"
-                  ratio="1:1"
-                  className="w-full h-auto object-cover rounded-xl"
-                />
-              </div>
-            </motion.div>
+              {/* 6. Middle Left Small Image */}
+              <motion.div 
+                initial={{ opacity: 0, x: -30, y: 0 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ duration: 1, delay: 0.8, type: "spring" }}
+                className="absolute top-[45%] -left-20 w-44 h-auto z-50"
+              >
+                <div className="w-full p-2 bg-white rounded-2xl shadow-2xl border border-gray-100 rotate-12 hover:rotate-6 hover:z-[60] transition-all duration-500">
+                  <ImagePlaceholder 
+                    label="HERO 6"
+                    path="/images/new%20image%204.jpeg"
+                    ratio="1:1"
+                    className="w-full h-auto object-cover rounded-xl"
+                  />
+                </div>
+              </motion.div>
 
-            {/* 7. Bottom Left Floating Image */}
-            <motion.div 
-              initial={{ opacity: 0, x: -40, y: 40 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 1, delay: 1, type: "spring" }}
-              className="absolute bottom-[5%] left-[0%] w-52 h-auto z-20"
-            >
-              <div className="w-full p-2 bg-white rounded-[1.5rem] shadow-xl border border-gray-100 -rotate-12 hover:-rotate-6 transition-transform duration-500">
-                <ImagePlaceholder 
-                  label="HERO 7"
-                  path="/images/Image%20of%20a%20man%20having%20food%20in%20hand%20and%20he%20is%20happy.avif"
-                  ratio="4:3"
-                  className="w-full h-auto object-cover rounded-xl"
-                />
-              </div>
-            </motion.div>
+              {/* 7. Bottom Left Floating Image */}
+              <motion.div 
+                initial={{ opacity: 0, x: -40, y: 40 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ duration: 1, delay: 1, type: "spring" }}
+                className="absolute -bottom-10 -left-12 w-52 h-auto z-20"
+              >
+                <div className="w-full p-2 bg-white rounded-[1.5rem] shadow-xl border border-gray-100 -rotate-12 hover:-rotate-6 hover:z-50 transition-all duration-500">
+                  <ImagePlaceholder 
+                    label="HERO 7"
+                    path="/images/Image%20of%20a%20man%20having%20food%20in%20hand%20and%20he%20is%20happy.avif"
+                    ratio="4:3"
+                    className="w-full h-auto object-cover rounded-xl"
+                  />
+                </div>
+              </motion.div>
 
-            {/* 8. Bottom Center Floating Image */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.9, type: "spring" }}
-              className="absolute bottom-[-10%] left-[35%] w-60 h-auto z-40"
-            >
-              <div className="w-full p-2 bg-white rounded-[1.5rem] shadow-2xl border border-gray-100 rotate-3 hover:-rotate-3 transition-transform duration-500">
-                <ImagePlaceholder 
-                  label="HERO 8"
-                  path="/images/More%20peple%20with%20food.avif"
-                  ratio="16:9"
-                  className="w-full h-auto object-cover rounded-xl"
-                />
-              </div>
-            </motion.div>
+              {/* 8. Bottom Center Floating Image */}
+              <motion.div 
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.9, type: "spring" }}
+                className="absolute -bottom-24 left-1/4 w-64 h-auto z-30"
+              >
+                <div className="w-full p-2 bg-white rounded-[1.5rem] shadow-2xl border border-gray-100 rotate-3 hover:-rotate-3 hover:z-50 transition-all duration-500">
+                  <ImagePlaceholder 
+                    label="HERO 8"
+                    path="/images/More%20peple%20with%20food.avif"
+                    ratio="16:9"
+                    className="w-full h-auto object-cover rounded-xl"
+                  />
+                </div>
+              </motion.div>
 
-            {/* 9. Bottom Right Floating Image with Play Button */}
-            <motion.div 
-              initial={{ opacity: 0, x: 50, y: 50 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 1, delay: 0.7, type: "spring" }}
-              className="absolute bottom-[10%] right-[0%] w-56 h-auto z-30"
-            >
-              <div className="w-full p-2 bg-white rounded-[1.5rem] shadow-2xl border border-gray-100 -rotate-6 hover:rotate-0 transition-transform duration-500">
-                <ImagePlaceholder 
-                  label="HERO 9"
-                  path="/images/new%20image%203.jpeg"
-                  ratio="4:3"
-                  className="w-full h-auto object-cover rounded-xl"
-                />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl text-[#FF4500] cursor-pointer">
-                    <Play fill="currentColor" size={20} className="ml-1" />
+              {/* 9. Bottom Right Floating Image with Play Button */}
+              <motion.div 
+                initial={{ opacity: 0, x: 50, y: 50 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ duration: 1, delay: 0.7, type: "spring" }}
+                className="absolute -bottom-8 -right-12 w-56 h-auto z-20"
+              >
+                <div className="w-full p-2 bg-white rounded-[1.5rem] shadow-xl border border-gray-100 -rotate-6 hover:rotate-0 hover:z-50 transition-all duration-500">
+                  <ImagePlaceholder 
+                    label="HERO 9"
+                    path="/images/new%20image%203.jpeg"
+                    ratio="4:3"
+                    className="w-full h-auto object-cover rounded-xl"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl text-[#FF4500] cursor-pointer">
+                      <Play fill="currentColor" size={20} className="ml-1" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
 
+            </div>
           </motion.div>
 
         </div>
