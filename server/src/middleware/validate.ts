@@ -5,7 +5,7 @@ import { AppError } from '../utils/AppError';
 export const validate = (schema: ZodSchema<any>) => 
   async (req: Request, res: Response, next: NextFunction) => {
     try {
-      await schema.parseAsync({
+      schema.parse({
         body: req.body,
         query: req.query,
         params: req.params,
