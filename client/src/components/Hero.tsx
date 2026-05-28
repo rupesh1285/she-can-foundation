@@ -12,10 +12,10 @@ export const Hero = () => {
   return (
     <section className="relative min-h-screen bg-[#FDFBF7] overflow-hidden flex items-center pt-20">
       
-      {/* Soft Ambient Glows */}
+      {/* Soft Ambient Glows with custom animations */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-[#FFDED6] blur-[120px] opacity-60"></div>
-        <div className="absolute top-[20%] -right-[10%] w-[40%] h-[60%] rounded-full bg-[#FF4500]/10 blur-[150px] opacity-60"></div>
+        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-[#FFDED6] blur-[120px] opacity-60 animate-blob"></div>
+        <div className="absolute top-[20%] -right-[10%] w-[40%] h-[60%] rounded-full bg-[#FF4500]/10 blur-[150px] opacity-60 animate-blob animation-delay-200"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">

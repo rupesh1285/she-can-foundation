@@ -70,9 +70,9 @@ export const Programs = ({ isPreview = false }) => {
               key={idx}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-xl group"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: idx * 0.15, duration: 0.6, ease: "easeOut" }}
+              className="bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-xl group hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#FF4500]/20 transition-all duration-500"
             >
               <ImagePlaceholder 
                 label={prog.imageLabel}
