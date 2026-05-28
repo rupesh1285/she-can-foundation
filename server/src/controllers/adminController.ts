@@ -2,60 +2,52 @@ import { Request, Response, NextFunction } from 'express';
 import { Volunteer } from '../models/Volunteer';
 import { Ambassador } from '../models/Ambassador';
 import { Contact } from '../models/Contact';
+import { Admin } from '../models/Admin';
 import asyncHandler from 'express-async-handler';
 import { AppError } from '../utils/AppError';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import { Model } from 'mongoose';
 
-export const getVolunteers = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-  const volunteers = await Volunteer.find().sort({ createdAt: -1 });
-  res.json(volunteers);
-});
-
-export const getAmbassadors = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-  const ambassadors = await Ambassador.find().sort({ createdAt: -1 });
-  res.json(ambassadors);
-});
-
-export const getContacts = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-  const contacts = await Contact.find().sort({ createdAt: -1 });
-  res.json(contacts);
-});
-
-// Generic toggle status
-export const toggleStatus = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-  const { type, id } = req.params;
-  const { status } = req.body;
+// Login
+export const login = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+  const { email, password } = req.body;
+  const admin = await Admin.findOne({ email });
   
-  let model;
-  switch (type) {
-    case 'volunteer': model = Volunteer; break;
-    case 'ambassador': model = Ambassador; break;
-    case 'contact': model = Contact; break;
-    default: return next(new AppError('Invalid submission type', 400));
+  if (!admin || !(await bcrypt.compare(password, admin.password))) {
+    return next(new AppError('Invalid credentials', 401));
   }
 
-  const item = await model.findByIdAndUpdate(id, { status }, { new: true });
-  if (!item) {
-    return next(new AppError('Item not found', 404));
-  }
-  
-  res.json({ message: 'Status updated successfully', item });
+  const token = jwt.sign({ id: admin._id }, process.env.JWT_SECRET || 'secret', { expiresIn: '1d' });
+  res.json({ token, admin: { email: admin.email } });
 });
 
-export const deleteSubmission = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-  const { type, id } = req.params;
-  
-  let model;
-  switch (type) {
-    case 'volunteer': model = Volunteer; break;
-    case 'ambassador': model = Ambassador; break;
-    case 'contact': model = Contact; break;
-    default: return next(new AppError('Invalid submission type', 400));
-  }
+// GET endpoints
+export const getVolunteers = asyncHandler(async (req, res) => { res.json(await Volunteer.find().sort({ createdAt: -1 })); });
+export const getAmbassadors = asyncHandler(async (req, res) => { res.json(await Ambassador.find().sort({ createdAt: -1 })); });
+export const getContacts = asyncHandler(async (req, res) => { res.json(await Contact.find().sort({ createdAt: -1 })); });
 
-  const item = await model.findByIdAndDelete(id);
-  if (!item) {
-    return next(new AppError('Item not found', 404));
-  }
-
-  res.json({ message: 'Item deleted successfully' });
+// Update status
+const updateStatus = (model: Model<any>) => asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+  const item = await model.findByIdAndUpdate(req.params.id, { status: req.body.status }, { new: true });
+  if (!item) return next(new AppError('Not found', 404));
+  res.json({ item });
 });
+export const updateVolunteerStatus = updateStatus(Volunteer);
+export const updateAmbassadorStatus = updateStatus(Ambassador);
+export const updateContactStatus = updateStatus(Contact);
+
+// Delete
+const deleteItem = (model: Model<any>) => asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+  const item = await model.findByIdAndDelete(req.params.id);
+  if (!item) return next(new AppError('Not found', 404));
+  res.json({ message: 'Deleted' });
+});
+export const deleteVolunteer = deleteItem(Volunteer);
+export const deleteAmbassador = deleteItem(Ambassador);
+export const deleteContact = deleteItem(Contact);
+
+// Exports
+export const exportVolunteers = asyncHandler(async (req, res) => { res.json(await Volunteer.find()); });
+export const exportAmbassadors = asyncHandler(async (req, res) => { res.json(await Ambassador.find()); });
+export const exportContacts = asyncHandler(async (req, res) => { res.json(await Contact.find()); });

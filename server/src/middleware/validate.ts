@@ -11,10 +11,10 @@ export const validate = (schema: ZodSchema<any>) =>
         params: req.params,
       });
       return next();
-    } catch (error) {
-      if (error instanceof ZodError) {
+    } catch (error: any) {
+      if (error && error.errors) {
         const errorMessages = error.errors.map((issue: any) => ({
-          message: `${issue.path.join('.')} is ${issue.message}`,
+          message: `${issue.path ? issue.path.join('.') : 'Field'} is ${issue.message}`,
         }));
         res.status(400).json({ status: 'fail', errors: errorMessages });
       } else {
