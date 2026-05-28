@@ -20,7 +20,7 @@ export const Programs = ({ isPreview = false }) => {
       description: "Promoting healthcare access, menstrual hygiene awareness, and distributing sanitary pads and dignity kits to girls across India.",
       icon: <Heart size={32} />,
       imageLabel: "PROGRAM — Sanitary pad distribution drive photo",
-      imagePath: "/images/More peple with food.avif",
+      imagePath: "/images/Pad Distribution.png",
       activities: ["Free sanitary pad distribution", "Menstrual hygiene workshops", "Dignity kit drives", "School awareness programs"],
       stat: "1,20,000+ girls reached"
     },

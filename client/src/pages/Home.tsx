@@ -29,7 +29,7 @@ export const Home = () => {
             <div className="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-xl">
               <ImagePlaceholder 
                 label="STORY — Ground level photo: sanitary pad drive"
-                path="/images/Image of a man having food in hand and he is happy.avif"
+                path="/images/Pad Distribution.png"
                 ratio="16:9"
                 className="mb-6 rounded-2xl"
               />

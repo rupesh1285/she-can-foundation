@@ -18,7 +18,7 @@ export const StoriesPage = () => {
             <div className="lg:w-1/2 w-full">
               <ImagePlaceholder 
                 label="STORY — Ground level photo: sanitary pad drive"
-                path="/images/Image of a man having food in hand and he is happy.avif"
+                path="/images/Pad Distribution.png"
                 ratio="16:9"
                 className="rounded-3xl shadow-lg"
               />
