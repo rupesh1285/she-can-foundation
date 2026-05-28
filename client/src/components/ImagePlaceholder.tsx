@@ -4,7 +4,7 @@ import { Camera } from 'lucide-react';
 interface ImagePlaceholderProps {
   label: string;
   path: string;
-  ratio?: '16:9' | '4:3' | '1:1' | 'auto';
+  ratio?: '16:9' | '4:3' | '3:4' | '1:1' | 'auto';
   className?: string;
 }
 
@@ -19,6 +19,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   const ratioClass = {
     '16:9': 'aspect-video',
     '4:3': 'aspect-[4/3]',
+    '3:4': 'aspect-[3/4]',
     '1:1': 'aspect-square',
     'auto': 'h-full w-full'
   }[ratio];
