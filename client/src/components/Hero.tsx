@@ -25,10 +25,10 @@ export const Hero = () => {
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Left Content (Takes 7 columns on LG) */}
+          {/* Left Content (Takes 6 columns on LG) */}
           <motion.div 
             style={{ y: y1, opacity }}
-            className="flex flex-col items-start lg:col-span-7 pt-10 lg:pt-0 z-20"
+            className="flex flex-col items-start lg:col-span-6 pt-10 lg:pt-0 z-20"
           >
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -96,20 +96,20 @@ export const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Image Collage (Takes 5 columns on LG) */}
+          {/* Right Image Collage (Takes 6 columns on LG) */}
           <motion.div 
             style={{ y: y2 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.2 }}
-            className="lg:col-span-5 relative h-[650px] w-full mt-16 lg:mt-0 hidden md:block"
+            className="lg:col-span-6 relative h-[700px] w-full mt-16 lg:mt-0 hidden md:block"
           >
             {/* Main Center Image */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               animate={{ opacity: 1, scale: 1, rotate: -2 }}
               transition={{ duration: 1, delay: 0.4, type: "spring" }}
-              className="absolute top-[45%] left-1/2 -translate-x-[60%] -translate-y-1/2 w-64 h-[350px] z-20"
+              className="absolute top-[40%] left-[30%] -translate-x-1/2 -translate-y-1/2 w-64 h-[350px] z-20"
             >
               <div className="w-full h-full p-2 bg-white rounded-3xl shadow-2xl border border-gray-100 hover:rotate-0 hover:scale-105 transition-all duration-500 cursor-pointer group">
                 <ImagePlaceholder 
@@ -126,7 +126,7 @@ export const Hero = () => {
               initial={{ opacity: 0, x: 50, y: -50 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 1, delay: 0.6, type: "spring" }}
-              className="absolute top-[5%] right-[-10%] w-80 h-auto z-10"
+              className="absolute top-[5%] right-[5%] w-80 h-auto z-10"
             >
               <div className="w-full p-2.5 bg-white rounded-[2rem] shadow-xl border border-gray-100 rotate-3 hover:rotate-6 transition-transform duration-500">
                 <ImagePlaceholder 
@@ -138,12 +138,29 @@ export const Hero = () => {
               </div>
             </motion.div>
 
+            {/* NEW: Top Left Image (Fills gap between text and collage) */}
+            <motion.div 
+              initial={{ opacity: 0, x: -50, y: -20 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 1, delay: 0.5, type: "spring" }}
+              className="absolute top-[10%] left-[-5%] w-48 h-auto z-30"
+            >
+              <div className="w-full p-2 bg-white rounded-[1.5rem] shadow-lg border border-gray-100 -rotate-6 hover:-rotate-3 transition-transform duration-500">
+                <ImagePlaceholder 
+                  label="HERO 5"
+                  path="/images/Volunteers giving fod to people.webp"
+                  ratio="4:3"
+                  className="w-full h-auto object-cover rounded-xl"
+                />
+              </div>
+            </motion.div>
+
             {/* Bottom Right Floating Image */}
             <motion.div 
               initial={{ opacity: 0, x: 50, y: 50 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 1, delay: 0.7, type: "spring" }}
-              className="absolute bottom-[10%] right-[-5%] w-56 h-auto z-30"
+              className="absolute bottom-[15%] right-[10%] w-60 h-auto z-30"
             >
               <div className="w-full p-2 bg-white rounded-[1.5rem] shadow-2xl border border-gray-100 -rotate-3 hover:-rotate-6 transition-transform duration-500">
                 <ImagePlaceholder 
@@ -165,7 +182,7 @@ export const Hero = () => {
               initial={{ opacity: 0, x: -50, y: 50 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 1, delay: 0.8, type: "spring" }}
-              className="absolute bottom-[-2%] left-[10%] w-48 h-auto z-40"
+              className="absolute bottom-[5%] left-[15%] w-52 h-auto z-40"
             >
               <div className="w-full p-2 bg-white rounded-[1.5rem] shadow-2xl border border-gray-100 -rotate-6 hover:-rotate-12 transition-transform duration-500">
                 <ImagePlaceholder 
@@ -173,6 +190,23 @@ export const Hero = () => {
                   path="/images/new image 4.jpeg"
                   ratio="1:1"
                   className="w-full h-auto object-cover rounded-[1rem]"
+                />
+              </div>
+            </motion.div>
+            
+            {/* NEW: Far Right Middle Small Image */}
+            <motion.div 
+              initial={{ opacity: 0, x: 30, y: 0 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 1, delay: 0.9, type: "spring" }}
+              className="absolute top-[45%] right-[-10%] w-40 h-auto z-10"
+            >
+              <div className="w-full p-1.5 bg-white rounded-2xl shadow-xl border border-gray-100 rotate-12 hover:rotate-6 transition-transform duration-500">
+                <ImagePlaceholder 
+                  label="HERO 6"
+                  path="/images/Kids and mother with food.avif"
+                  ratio="1:1"
+                  className="w-full h-auto object-cover rounded-xl"
                 />
               </div>
             </motion.div>
