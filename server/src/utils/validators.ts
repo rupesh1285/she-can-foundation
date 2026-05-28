@@ -6,7 +6,7 @@ export const volunteerSchema = z.object({
     email: z.string().email("Invalid email address"),
     phone: z.string().min(10, "Phone number must be at least 10 digits").max(15),
     city: z.string().min(2, "City is required").max(100),
-    contribution: z.string().min(10, "Contribution must be at least 10 characters").max(1000),
+    contribution: z.string().min(2, "Contribution must be at least 2 characters").max(1000),
     message: z.string().max(2000).optional(),
   })
 });

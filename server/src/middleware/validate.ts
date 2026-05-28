@@ -12,11 +12,12 @@ export const validate = (schema: ZodSchema<any>) =>
       });
       return next();
     } catch (error: any) {
-      if (error && error.errors) {
-        const errorMessages = error.errors.map((issue: any) => ({
-          message: `${issue.path ? issue.path.join('.') : 'Field'} is ${issue.message}`,
+      if (error && (error.name === 'ZodError' || error.issues)) {
+        const issues = error.issues || error.errors || [];
+        const errorMessages = issues.map((issue: any) => ({
+          message: `${issue.path && issue.path[1] ? issue.path[1] : 'Field'}: ${issue.message}`,
         }));
-        res.status(400).json({ status: 'fail', errors: errorMessages });
+        res.status(400).json({ status: 'fail', message: errorMessages[0].message, errors: errorMessages });
       } else {
         next(error);
       }
