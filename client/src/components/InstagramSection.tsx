@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Instagram } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 
 export const InstagramSection = () => {
   const posts = [

@@ -24,7 +24,7 @@ export const VolunteerPage = () => {
       } else {
         toast.error(data.message || 'Failed to submit application.');
       }
-    } catch(err) {
+    } catch {
       toast.error('An error occurred.');
     } finally { setLoading(false); }
   };
@@ -45,7 +45,7 @@ export const VolunteerPage = () => {
       } else {
         toast.error(data.message || 'Failed to submit application.');
       }
-    } catch(err) {
+    } catch {
       toast.error('An error occurred.');
     } finally { setLoading(false); }
   };

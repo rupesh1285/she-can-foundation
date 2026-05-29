@@ -16,7 +16,7 @@ export const Navbar = () => {
 
   // Close mobile menu on route change
   useEffect(() => {
-    setMobileMenuOpen(false);
+    setTimeout(() => setMobileMenuOpen(false), 0);
   }, [location]);
 
   const navLinks = [

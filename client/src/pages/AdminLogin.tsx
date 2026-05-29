@@ -20,7 +20,7 @@ export const AdminLogin = () => {
       login(res.data.token, res.data.admin.role);
       toast.success('Logged in successfully');
       navigate('/admin/dashboard');
-    } catch (error) {
+    } catch {
       toast.error('Invalid credentials');
     }
     setLoading(false);

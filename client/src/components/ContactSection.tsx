@@ -15,7 +15,7 @@ export const ContactSection = () => {
       await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/contact`, formData);
       toast.success('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
+    } catch {
       toast.error('Failed to send message.');
     }
     setLoading(false);

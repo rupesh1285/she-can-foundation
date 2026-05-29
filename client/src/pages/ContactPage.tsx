@@ -26,7 +26,7 @@ export const ContactPage = () => {
       } else {
         toast.error(data.message || 'Failed to send message.');
       }
-    } catch (error) {
+    } catch {
       toast.error('An error occurred. Please try again.');
     } finally {
       setLoading(false);

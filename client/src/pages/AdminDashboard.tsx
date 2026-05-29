@@ -30,6 +30,11 @@ export const AdminDashboard = () => {
     headers: { Authorization: `Bearer ${token}` }
   });
 
+  const handleLogout = () => {
+    logout();
+    navigate('/admin/login');
+  };
+
   const fetchData = async () => {
     setLoading(true);
     try {
@@ -60,7 +65,9 @@ export const AdminDashboard = () => {
   };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [role]);
 
   // Real-time EventSource connection for instant force-logout
@@ -74,26 +81,22 @@ export const AdminDashboard = () => {
             toast.error('Your admin access has been revoked by the Master Admin.', { duration: 5000 });
             handleLogout();
           }
-        } catch (err) {}
+        } catch { /* ignore */ }
       };
       
       return () => {
         sse.close();
       };
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
-
-  const handleLogout = () => {
-    logout();
-    navigate('/admin/login');
-  };
 
   const toggleStatus = async (type: string, id: string) => {
     try {
       await api.patch(`/api/admin/${type}/${id}/status`);
       toast.success('Status updated');
       fetchData();
-    } catch (error) {
+    } catch {
       toast.error('Failed to update status');
     }
   };
@@ -109,8 +112,12 @@ export const AdminDashboard = () => {
       await api.delete(`/api/admin/${deleteTarget.type}/${deleteTarget.id}`);
       toast.success('Record deleted');
       fetchData();
-    } catch (error: any) {
-      toast.error(error.response?.data?.error || 'Failed to delete record');
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        toast.error(error.response?.data?.error || 'Failed to delete record');
+      } else {
+        toast.error('Failed to delete record');
+      }
     }
     setDeleteTarget(null);
     setIsDeleting(false);
@@ -125,8 +132,12 @@ export const AdminDashboard = () => {
       setNewAdminEmail('');
       setNewAdminPassword('');
       fetchData();
-    } catch (error: any) {
-      toast.error(error.response?.data?.error || 'Failed to create admin');
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        toast.error(error.response?.data?.error || 'Failed to create admin');
+      } else {
+        toast.error('Failed to create admin');
+      }
     }
     setCreatingAdmin(false);
   };
@@ -293,7 +304,7 @@ export const AdminDashboard = () => {
                         </tr>
                       ))
                     ) : (
-                      (activeTab === 'volunteers' ? volunteers : activeTab === 'ambassadors' ? ambassadors : contacts).map((item: any) => (
+                      (activeTab === 'volunteers' ? volunteers : activeTab === 'ambassadors' ? ambassadors : contacts).map((item: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => (
                         <tr key={item._id} className="hover:bg-gray-50 transition-colors">
                           <td className="p-4">
                             <p className="font-medium text-[#1A1A2E]">{item.name}</p>

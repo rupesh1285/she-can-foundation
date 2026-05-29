@@ -14,7 +14,7 @@ export const CampusAmbassador = () => {
       await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/ambassadors`, formData);
       toast.success('Application submitted successfully!');
       setFormData({ name: '', email: '', college: '', city: '' });
-    } catch (error) {
+    } catch {
       toast.error('Something went wrong.');
     }
     setLoading(false);
