@@ -3,7 +3,8 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
-import { Heart, LogOut, Users, Award, MessageSquare, Download, Trash2, CheckCircle, Circle, Shield, Plus } from 'lucide-react';
+import { downloadAdminCsv } from '../utils/api';
+import { Heart, LogOut, Users, Award, MessageSquare, Download, Trash2, CheckCircle, Circle, Shield, Plus, Loader2 } from 'lucide-react';
 import type { Volunteer, Ambassador, Contact, Admin } from '../types';
 
 export const AdminDashboard = () => {
@@ -22,6 +23,7 @@ export const AdminDashboard = () => {
   const [newAdminEmail, setNewAdminEmail] = useState('');
   const [newAdminPassword, setNewAdminPassword] = useState('');
   const [creatingAdmin, setCreatingAdmin] = useState(false);
+  const [downloadingCsv, setDownloadingCsv] = useState(false);
   
   const { token, role, logout } = useAuth();
   const navigate = useNavigate();
@@ -143,9 +145,16 @@ export const AdminDashboard = () => {
     setCreatingAdmin(false);
   };
 
-  const downloadCSV = (type: string) => {
+  const downloadCSV = async (type: string) => {
     if (type === 'admins') return;
-    window.open(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/${type}/export/csv?token=${token}`, '_blank');
+    setDownloadingCsv(true);
+    try {
+      await downloadAdminCsv(`/api/admin/${type}/export/csv`, `${type}-export.csv`);
+      toast.success('Download started');
+    } catch {
+      toast.error('Failed to download CSV');
+    }
+    setDownloadingCsv(false);
   };
 
   const stats = [
@@ -242,8 +251,9 @@ export const AdminDashboard = () => {
           <div className="p-6 border-b border-gray-100 flex justify-between items-center">
             <h3 className="text-xl font-bold text-[#1A1A2E] capitalize">{activeTab.replace('-', ' ')}</h3>
             {activeTab !== 'admins' && (
-              <button onClick={() => downloadCSV(activeTab)} className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-sm font-medium transition-colors">
-                <Download size={16} /> Export CSV
+              <button disabled={downloadingCsv} onClick={() => downloadCSV(activeTab)} className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-sm font-medium transition-colors disabled:opacity-70">
+                {downloadingCsv ? <Loader2 size={16} className="animate-spin" /> : <Download size={16} />}
+                Export CSV
               </button>
             )}
           </div>

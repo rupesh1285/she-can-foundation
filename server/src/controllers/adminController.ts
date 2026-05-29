@@ -50,10 +50,64 @@ export const deleteVolunteer = deleteItem(Volunteer);
 export const deleteAmbassador = deleteItem(Ambassador);
 export const deleteContact = deleteItem(Contact);
 
+// CSV Helper
+const sendCSV = (res: Response, filename: string, data: any[], fields: { label: string, value: string }[]) => {
+  const header = fields.map(f => `"${f.label}"`).join(',');
+  const rows = data.map(row => {
+    return fields.map(f => {
+      let val = row[f.value] || '';
+      if (val instanceof Date) val = val.toISOString();
+      val = String(val).replace(/"/g, '""'); // escape quotes
+      return `"${val}"`;
+    }).join(',');
+  });
+  
+  const csv = [header, ...rows].join('\n');
+  
+  res.setHeader('Content-Type', 'text/csv');
+  res.setHeader('Content-Disposition', `attachment; filename=${filename}-${new Date().toISOString().split('T')[0]}.csv`);
+  res.status(200).send(csv);
+};
+
 // Exports
-export const exportVolunteers = asyncHandler(async (req, res) => { res.json(await Volunteer.find()); });
-export const exportAmbassadors = asyncHandler(async (req, res) => { res.json(await Ambassador.find()); });
-export const exportContacts = asyncHandler(async (req, res) => { res.json(await Contact.find()); });
+export const exportVolunteers = asyncHandler(async (req, res) => {
+  const data = await Volunteer.find().sort({ createdAt: -1 });
+  sendCSV(res, 'volunteers', data, [
+    { label: 'Name', value: 'name' },
+    { label: 'Email', value: 'email' },
+    { label: 'Phone', value: 'phone' },
+    { label: 'City', value: 'city' },
+    { label: 'Contribution', value: 'contribution' },
+    { label: 'Message', value: 'message' },
+    { label: 'Status', value: 'status' },
+    { label: 'Date', value: 'createdAt' }
+  ]);
+});
+
+export const exportAmbassadors = asyncHandler(async (req, res) => {
+  const data = await Ambassador.find().sort({ createdAt: -1 });
+  sendCSV(res, 'ambassadors', data, [
+    { label: 'Name', value: 'name' },
+    { label: 'Email', value: 'email' },
+    { label: 'Phone', value: 'phone' },
+    { label: 'College', value: 'college' },
+    { label: 'Year', value: 'year' },
+    { label: 'Why Join', value: 'whyJoin' },
+    { label: 'Status', value: 'status' },
+    { label: 'Date', value: 'createdAt' }
+  ]);
+});
+
+export const exportContacts = asyncHandler(async (req, res) => {
+  const data = await Contact.find().sort({ createdAt: -1 });
+  sendCSV(res, 'messages', data, [
+    { label: 'Name', value: 'name' },
+    { label: 'Email', value: 'email' },
+    { label: 'Message', value: 'message' },
+    { label: 'Status', value: 'status' },
+    { label: 'Date', value: 'createdAt' }
+  ]);
+});
 
 // Admin Management (Master Only)
 export const getAdmins = asyncHandler(async (req: Request, res: Response) => {
