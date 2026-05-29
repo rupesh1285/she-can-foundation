@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 import { Award } from 'lucide-react';
 
 export const CampusAmbassador = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', college: '', city: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', college: '', year: '', whyJoin: '' });
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -13,7 +13,7 @@ export const CampusAmbassador = () => {
     try {
       await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/ambassador`, formData);
       toast.success('Application submitted successfully!');
-      setFormData({ name: '', email: '', college: '', city: '' });
+      setFormData({ name: '', email: '', phone: '', college: '', year: '', whyJoin: '' });
     } catch {
       toast.error('Something went wrong.');
     }
@@ -63,8 +63,16 @@ export const CampusAmbassador = () => {
                   <input required type="text" value={formData.college} onChange={e => setFormData({...formData, college: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF4500]" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">City</label>
-                  <input required type="text" value={formData.city} onChange={e => setFormData({...formData, city: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF4500]" />
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                  <input required type="tel" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF4500]" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Current Year</label>
+                  <input required type="text" value={formData.year} onChange={e => setFormData({...formData, year: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF4500]" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Why do you want to join?</label>
+                  <textarea required rows={3} value={formData.whyJoin} onChange={e => setFormData({...formData, whyJoin: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF4500] resize-none" />
                 </div>
                 <button disabled={loading} type="submit" className="w-full py-4 rounded-xl text-white font-bold bg-gradient-to-r from-[#FF4500] to-[#FF6BB5] hover:shadow-lg disabled:opacity-70 transition-all mt-4">
                   {loading ? 'Applying...' : 'Apply Now'}

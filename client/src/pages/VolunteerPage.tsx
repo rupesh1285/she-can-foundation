@@ -24,8 +24,8 @@ export const VolunteerPage = () => {
       } else {
         toast.error(data.message || 'Failed to submit application.');
       }
-    } catch {
-      toast.error('An error occurred.');
+    } catch (err: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) {
+      toast.error(err.message || 'Network error. Please check your connection.');
     } finally { setLoading(false); }
   };
 
@@ -45,8 +45,8 @@ export const VolunteerPage = () => {
       } else {
         toast.error(data.message || 'Failed to submit application.');
       }
-    } catch {
-      toast.error('An error occurred.');
+    } catch (err: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) {
+      toast.error(err.message || 'Network error. Please check your connection.');
     } finally { setLoading(false); }
   };
 

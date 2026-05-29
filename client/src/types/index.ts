@@ -48,8 +48,10 @@ export interface VolunteerFormValues {
 export interface AmbassadorFormValues {
   name: string
   email: string
+  phone: string
   college: string
-  city: string
+  year: string
+  whyJoin: string
 }
 
 export interface ContactFormValues {

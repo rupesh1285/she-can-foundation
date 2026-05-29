@@ -26,8 +26,8 @@ export const ContactPage = () => {
       } else {
         toast.error(data.message || 'Failed to send message.');
       }
-    } catch {
-      toast.error('An error occurred. Please try again.');
+    } catch (err: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) {
+      toast.error(err.message || 'Network error. Please check your connection.');
     } finally {
       setLoading(false);
     }

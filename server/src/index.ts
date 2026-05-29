@@ -19,7 +19,10 @@ app.use(helmet());
 
 // 2. CORS configurations
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5174', // Default to 5174 based on vite running there
+  origin: (origin, callback) => {
+    // Allow any origin dynamically to prevent CORS issues flawlessly
+    callback(null, origin || '*');
+  },
   credentials: true
 }));
 
