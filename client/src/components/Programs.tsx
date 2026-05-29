@@ -29,7 +29,7 @@ export const Programs = ({ isPreview = false }) => {
       description: "Teaching essential digital skills to bridge the technology gap for women across India in the modern, connected economy.",
       icon: <Shield size={32} />,
       imageLabel: "PROGRAM — Women learning on computers/phones",
-      imagePath: "/images/program-digital.jpg",
+      imagePath: "/images/new image 5.jpeg",
       activities: ["Computer training", "Mobile literacy", "Online safety workshops", "Digital entrepreneurship"],
       stat: null
     },
