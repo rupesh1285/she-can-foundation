@@ -33,12 +33,12 @@ const authHeaders = () => {
 }
 
 export const submitVolunteer = async (payload: VolunteerFormValues): Promise<Volunteer> => {
-  const { data } = await api.post<ApiResponse<Volunteer>>('/api/volunteers', payload)
+  const { data } = await api.post<ApiResponse<Volunteer>>('/api/volunteer', payload)
   return data.data as Volunteer
 }
 
 export const submitAmbassador = async (payload: AmbassadorFormValues): Promise<Ambassador> => {
-  const { data } = await api.post<ApiResponse<Ambassador>>('/api/ambassadors', payload)
+  const { data } = await api.post<ApiResponse<Ambassador>>('/api/ambassador', payload)
   return data.data as Ambassador
 }
 

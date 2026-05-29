@@ -13,7 +13,7 @@ export const Volunteer = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/volunteers`, formData);
+      await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/volunteer`, formData);
       toast.success('Thank you for joining us! We will reach out soon.');
       setFormData({ name: '', email: '', phone: '', city: '', contribution: '', message: '' });
     } catch {

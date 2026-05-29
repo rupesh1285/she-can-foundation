@@ -27,6 +27,7 @@ export const AdminDashboard = () => {
   const navigate = useNavigate();
 
   const api = axios.create({
+    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000',
     headers: { Authorization: `Bearer ${token}` }
   });
 
@@ -73,7 +74,7 @@ export const AdminDashboard = () => {
   // Real-time EventSource connection for instant force-logout
   useEffect(() => {
     if (token) {
-      const sse = new EventSource(`/api/admin/stream?token=${token}`);
+      const sse = new EventSource(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/stream?token=${token}`);
       sse.onmessage = (e) => {
         try {
           const data = JSON.parse(e.data);
@@ -144,7 +145,7 @@ export const AdminDashboard = () => {
 
   const downloadCSV = (type: string) => {
     if (type === 'admins') return;
-    window.open(`/api/admin/${type}/export/csv?token=${token}`, '_blank');
+    window.open(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/${type}/export/csv?token=${token}`, '_blank');
   };
 
   const stats = [

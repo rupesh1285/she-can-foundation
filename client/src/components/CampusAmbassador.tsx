@@ -11,7 +11,7 @@ export const CampusAmbassador = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/ambassadors`, formData);
+      await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/ambassador`, formData);
       toast.success('Application submitted successfully!');
       setFormData({ name: '', email: '', college: '', city: '' });
     } catch {

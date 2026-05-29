@@ -12,7 +12,7 @@ export const VolunteerPage = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch('/api/volunteer', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/volunteer`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(volData)
@@ -33,7 +33,7 @@ export const VolunteerPage = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch('/api/ambassador', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/ambassador`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(ambData)
