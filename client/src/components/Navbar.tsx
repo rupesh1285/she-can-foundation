@@ -33,8 +33,7 @@ export const Navbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed left-1/2 -translate-x-1/2 z-50 w-full lg:w-[95%] max-w-6xl lg:rounded-[2rem] transition-all duration-500 border-b lg:border
-        top-0 lg:top-4
+      className={`fixed top-0 xl:top-4 inset-x-0 mx-auto z-50 w-full xl:w-[95%] max-w-6xl xl:rounded-[2rem] transition-all duration-500 border-b xl:border
         ${
         scrolled 
           ? 'bg-white/80 backdrop-blur-2xl shadow-[0_30px_60px_-15px_rgba(233,30,140,0.15)] border-white/50 py-3 px-4 sm:px-6' 
@@ -67,7 +66,7 @@ export const Navbar = () => {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-6 bg-white/50 px-8 py-3 rounded-full border border-white/60 shadow-[inset_0_2px_10px_rgba(255,255,255,1)]">
+        <div className="hidden xl:flex items-center gap-6 bg-white/50 px-8 py-3 rounded-full border border-white/60 shadow-[inset_0_2px_10px_rgba(255,255,255,1)]">
           {navLinks.map((link) => {
             const isActive = location.pathname === link.href;
             return (
@@ -84,7 +83,7 @@ export const Navbar = () => {
         </div>
 
         {/* Desktop Actions */}
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden xl:flex items-center gap-4">
           <Link 
             to="/donate" 
             className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#FF4500] to-[#FF8C66] text-white text-sm font-bold shadow-[0_10px_20px_-10px_rgba(225,29,72,0.6)] hover:shadow-[0_15px_30px_-10px_rgba(225,29,72,0.8)] hover:-translate-y-0.5 transition-all duration-300"
@@ -95,7 +94,7 @@ export const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button 
-          className="lg:hidden h-12 px-4 rounded-2xl bg-white/60 border border-white/60 flex items-center justify-center gap-2 text-[#0F172A] font-bold shadow-sm"
+          className="xl:hidden h-12 px-4 rounded-2xl bg-white/60 border border-white/60 flex items-center justify-center gap-2 text-[#0F172A] font-bold shadow-sm"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -110,7 +109,7 @@ export const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden overflow-hidden"
+            className="xl:hidden overflow-hidden"
           >
             <div className="flex flex-col gap-4 pt-6 pb-4 px-2">
               {navLinks.map((link) => (
