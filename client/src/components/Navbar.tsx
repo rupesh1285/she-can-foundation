@@ -33,10 +33,12 @@ export const Navbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl rounded-[2rem] transition-all duration-500 border ${
+      className={`fixed left-1/2 -translate-x-1/2 z-50 w-full lg:w-[95%] max-w-6xl lg:rounded-[2rem] transition-all duration-500 border-b lg:border
+        top-0 lg:top-4
+        ${
         scrolled 
-          ? 'bg-white/70 backdrop-blur-2xl shadow-[0_30px_60px_-15px_rgba(233,30,140,0.15)] border-white/50 py-3 px-6' 
-          : 'bg-white/40 backdrop-blur-xl border-white/30 py-4 px-8 shadow-2xl shadow-black/5'
+          ? 'bg-white/80 backdrop-blur-2xl shadow-[0_30px_60px_-15px_rgba(233,30,140,0.15)] border-white/50 py-3 px-4 sm:px-6' 
+          : 'bg-white/60 backdrop-blur-xl border-white/30 py-4 px-4 sm:px-8 shadow-2xl shadow-black/5'
       }`}
     >
       <div className="flex items-center justify-between">
@@ -93,10 +95,11 @@ export const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button 
-          className="lg:hidden w-12 h-12 rounded-2xl bg-white/50 border border-white/60 flex items-center justify-center text-[#0F172A]"
+          className="lg:hidden h-12 px-4 rounded-2xl bg-white/60 border border-white/60 flex items-center justify-center gap-2 text-[#0F172A] font-bold shadow-sm"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          <span className="text-sm">{mobileMenuOpen ? 'Close' : 'Menu'}</span>
         </button>
       </div>
 
