@@ -120,8 +120,8 @@ export const Home = () => {
             ratio="auto"
             className="w-full h-full object-cover"
           />
-          {/* Very subtle neutral overlay to ensure text readability, completely removing the blue (#0F172A) */}
-          <div className="absolute inset-0 bg-black/20"></div>
+          {/* Subtle neutral opacity gradient to give it a background effect without tinting it blue */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10"></div>
         </div>
 
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#FF4500] rounded-full blur-[150px] opacity-30 z-0"></div>
