@@ -111,21 +111,21 @@ export const Home = () => {
       <InstagramSection />
 
       {/* Volunteer CTA */}
-      <section className="py-32 bg-[#0F172A] text-white text-center relative overflow-hidden">
+      <section className="py-32 text-white text-center relative overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <ImagePlaceholder 
             label="BE THE CHANGE BACKGROUND"
             path="/images/Must use image, having so much happy children and voulnteer.avif"
             ratio="auto"
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover"
           />
-          {/* Overlay to ensure text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/80 to-[#0F172A]/90"></div>
+          {/* Very subtle neutral overlay to ensure text readability, completely removing the blue (#0F172A) */}
+          <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#FF4500] rounded-full blur-[150px] opacity-20 z-0"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#FFDED6] rounded-full blur-[150px] opacity-10 z-0"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#FF4500] rounded-full blur-[150px] opacity-30 z-0"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#FFDED6] rounded-full blur-[150px] opacity-20 z-0"></div>
         
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
